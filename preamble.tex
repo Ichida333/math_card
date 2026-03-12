@@ -1,0 +1,83 @@
+% ============================
+% パッケージ
+% ============================
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{tabularx,longtable,multirow,here,colortbl}
+\definecolor{pink}{cmyk}{0.093, 0.551, 0.289, 0}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{wrapfig}
+\usepackage{ascmac,comment,url,makeidx,subfiles,pifont}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{intersections, calc, arrows, trees}
+\usepackage[dvipdfmx,bookmarkstype=toc,colorlinks=true,urlcolor=black,linkcolor=blue,citecolor=blue,linktocpage=true,bookmarks=true]{hyperref}
+\AtBeginDvi{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=1cm, right=1cm, includefoot}
+
+% ============================
+% 定理環境
+% ============================
+\newtheoremstyle{mystyle}{5pt}{12pt}{\normalfont\setlength{\parindent}{2em}}{}{\bf}{.}{\newline}{\underline{\thmname{#1}{\;}\thmnumber{#2}}\thmnote{（#3）}}
+\theoremstyle{mystyle}
+\newtheorem{my-theorem}{Theorem}[section]
+\newtheorem{my-lemma}[my-theorem]{Lemma}
+\newtheorem{my-proposition}[my-theorem]{Proposition}
+\newtheorem{my-corollary}[my-theorem]{Corollary}
+\newtheorem{my-definition}[my-theorem]{Definition}
+\newtheorem{my-example}[my-theorem]{Example}
+\newtheorem{my-remark}[my-theorem]{Remark}
+\newtheorem{my-exercise}[my-theorem]{Exercise}
+
+\newcommand{\thmsymbol}{$\blacksquare$}
+
+% 環境上書き
+\newenvironment{theorem}[1][] {\begin{my-theorem}[#1]\renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}{\popQED\end{my-theorem}}
+\newenvironment{lemma}[1][] {\begin{my-lemma}[#1]\renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}{\popQED\end{my-lemma}}
+\newenvironment{proposition}[1][] {\begin{my-proposition}[#1]\renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}{\popQED\end{my-proposition}}
+\newenvironment{corollary}[1][] {\begin{my-corollary}[#1]\renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}{\popQED\end{my-corollary}}
+\newenvironment{definition}[1][] {\begin{my-definition}[#1]\renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}{\popQED\end{my-definition}}
+\newenvironment{example}[1][] {\begin{my-example}[#1]\renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}{\popQED\end{my-example}}
+\newenvironment{remark}[1][] {\begin{my-remark}[#1]\renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}{\popQED\end{my-remark}}
+\newenvironment{exercise}[1][] {\begin{my-exercise}[#1]\renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}{\popQED\end{my-exercise}}
+
+% ============================
+% 証明環境
+% ============================
+\renewcommand{\proofname}{Proof}
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par\pushQED{\qed}\normalfont \topsep6\p@\@plus6\p@\relax \trivlist\item[\hskip\labelsep\itshape {\bf\underline{#1}\@addpunct{\ }}]\ignorespaces}{\popQED\endtrivlist\@endpefalse}
+\makeatother
+\newenvironment{answer}{\begin{proof}[Answer]}{\end{proof}}
+
+% ============================
+% マクロ
+% ============================
+\newcommand{\defarr}{\ \mbox{$\stackrel{\text{def}}{\Longleftrightarrow}$}}
+\newcommand{\defeq}{\ \mbox{$\stackrel{\text{def}}{=}$}}
+\newcommand{\tempdefeq}{:=}
+\newcommand{\map}[3]{#1\colon #2 \to #3}
+\newcommand{\InjectionMap}[3]{#1\colon #2 \xrightarrow{\text{inj}} #3}
+\newcommand{\BijectionMap}[3]{#1\colon #2 \xrightarrow{\text{bij}} #3}
+\newcommand{\op}[2]{\langle #1,#2 \rangle}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\newcommand{\idmap}[1]{\mathrm{id}_{#1}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\SetBar}[2]{\{\,#1\,\mid\,#2\,\}}
+\newcommand{\tempdefarr}{:\Leftrightarrow}
+\newcommand{\dash}[1]{#1 ^{\prime}}
+\newcommand{\ImpDir}[2]{\hspace{-0.5cm}（\;(#1)$\Rightarrow$(#2)\;）}
+
+% sub-block 環境
+\definecolor{BIP-back}{gray}{0.85}
+\newcount\subblocklevel
+\subblocklevel=0
+\newcommand{\subblockcolback}{\ifodd\subblocklevel BIP-back\else white\fi}
+\makeatletter
+\newcommand{\sbfootnote}[1]{\footnotemark\expandafter\g@addto@macro\csname sb@footnotes@\the\subblocklevel\endcsname{\footnotetext{#1}}}
+\makeatother
+\newenvironment{sub-block}[1]{\global\advance\subblocklevel by 1\relax\expandafter\gdef\csname sb@footnotes@\the\subblocklevel\endcsname{}\vspace{-5pt}\begin{tcolorbox}[colback = \subblockcolback,colframe = white,boxrule = 5pt,fonttitle = \bfseries,breakable = true]\begin{itemize} \item[#1]}{\end{itemize}\end{tcolorbox}\vspace{-5pt}\csname sb@footnotes@\the\subblocklevel\endcsname\global\advance\subblocklevel by -1\relax}

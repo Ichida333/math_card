@@ -1,0 +1,33 @@
+\documentclass[a4j,dvipdfmx,10pt]{ujreport}
+
+% プリアンブルを読み込む
+\input{preamble.tex}
+
+\title{集合論濃度編ゼミノート}
+\author{市田}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% メモなど
+レッスンのカリキュラム内の定義や記法と異なる点のメモ
+\begin{enumerate}
+  \item 同値の意味で「$\Leftrightarrow$」を使っている.
+  \item レッスンでいう$\InjectionMap{f}{X}{Y}$のような単射・全射を表す記法がない？
+\end{enumerate}
+
+% 章を読み込む
+\setcounter{chapter}{6}
+\chapter{濃度}
+\label{chapter:濃度}
+
+\input{chapter6.tex}
+
+\renewcommand{\bibname}{参考文献}
+\bibliographystyle{jplain}
+\bibliography{souji.bib}
+
+%\printindex
+\end{document}
