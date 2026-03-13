@@ -5,14 +5,112 @@
 \begin{definition}[]
   \label{definition:集合の対等関係}
   $X$を集合とする。自然数$n$と全単射$n \rightarrow X$があるとき,$X$は有限集合であるという。
-  $X$が有限集合でないとき、Xは無限集合であるという。
 
   つまり、 $\exists f( \; \BijectionMap{f}{n}{X} \; ) \defarr X$は有限集合
 \end{definition}
 
 \begin{proposition}[]
-  1. $n, m \in N$
-  $A\tempdefeq \{ 0,1,2 \},B\tempdefeq \{ a,b,c \}$とおくとき,
-  $A\sim B$でもいける.
-  ...
+  1. $n$,$m$を自然数とする、また、$n$,$m$を集合で表したものを$N = \{0,1,2,3.., n-1\}$, $M = \{0,1,2,3.., m-1\}$とおく。
+
+  このとき、$\BijectionMap{f}{N}{M} \rightarrow n = m$
 \end{proposition}
+
+\begin{proof}
+  \mbox{}
+  \begin{itemize}
+    $n$に関する帰納法で示す。
+    $n=0$なら、$N = \emptyset.$このとき、$M = \emptyset.$よって、$m = 0.$
+    $n > 0$とし、$n,m \ne 0$より、$n - 1 \in N, m - 1 \in M$. \\
+    $f (n - 1) := l \in M$とする.このとき、$ \map{g}{M}{M}$を
+
+  \begin{equation*}
+    g(i)=
+    \begin{cases}
+      i & i \ne l, m - 1 \text{のとき},\\
+      l & i = m - 1\text{のとき},\\
+      m - 1  & i = l\text{のとき}
+    \end{cases}
+  \end{equation*}
+
+と定める.
+
+    \\
+      $X$は有限集合なので$n$を$|X|=n$な$n\in \mathbb{N}$とする.
+      よって$X$を$\{ x_1,\dots,x_n \}$と表す.
+      同様に$Y$を$\{ y_1,\dots,y_n \}$と表す.
+      $\map{f}{X}{Y}$な$f$を$i\in \{ 1,\dots,n\}$について$f(x_i)=y_i$で定める.
+      順序対の集合として$f$を表すならば$\SetBar{ \op{x_i}{y_i} }{ i\in \{ 1,\dots,n\} }$となる.
+      ここで$f$は全単射である.
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        \begin{itemize}
+          \item[] \hspace{-0.5cm}（単射性） \\
+            任意に$x\neq \dash{x}$な$x,\dash{x}\in X$をとる.
+            するとある$i,j\in \{ 1,\dots,n\}$があって,
+            $i\neq j\land x=x_i\land \dash{x}=x_j$となっているので,
+            そんな$i,j$をそれぞれとって固定しておく.
+            すると$f(x)=f(x_i)=y_i$と$f(\dash{x})=f(x_j)=y_j$となるが,
+            $i\neq j$より$y_i\neq y_j$,
+            つまり$f(x)\neq f(\dash{x})$である.
+
+          \item[] \hspace{-0.5cm}（全射性） \\ 
+            任意に$y\in Y$をとる.
+            するとある$i\in \{ 1,\dots,n\}$があって,
+            $y=y_i$となっているので,
+            そんな$i$をとって固定しておく.
+            ここで$x\tempdefeq x_i$とおくと$x\in X$かつ$f(x)=f(x_i)=y_i=y$より$f(x)=y$である.
+            そんな$x$の存在より$\exists x\in X( f(x)=y )$は真である.
+        \end{itemize}
+      \end{sub-block}
+      そんな$f$の存在より$X\sim Y$である.
+      
+    \item[] \ImpDir{b}{a} \\
+      $X\sim Y$より存在する$\BijectionMap{f}{X}{Y}$な$f$を1つとり固定する.
+      $|X|=|f[X]|$である.
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        $X$が有限集合なので,
+        $f[X]$も有限である.
+        \begin{sub-block}{{\boldmath $\because$}\,}
+          $X$が有限なので$n\in \mathbb{N}$を用いて$|X|=n$とおくと,
+          $X$は$\{x_1,\dots , x_n\}$と表せて,
+          $f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せることからその要素数は明らかに$n$個以下であり,
+          ゆえにその要素数は有限である.
+        \end{sub-block}
+
+        そしていつでも$|f[X]|\leq |X|$が成立する.
+        \begin{sub-block}{{\boldmath $\because$}\,}
+          $|f[X]|> |X|$だったとする.
+          $n,n_f\in \mathbb{N}$を用いて
+          $|f[X]|=n_f,|X|=n$とおくと,
+          $X$は$\{x_1,\dots , x_n\}$と表せて,
+          $f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せる.
+          そして$f[X]$の要素の個数は$n$以下であるが,
+          $|f[X]|=n_f$よりその要素数が$n$より大きい$n_f$であることは矛盾である.
+        \end{sub-block}
+
+        ここで背理法を用いるため$|f[X]|\neq |X|$だったとすると,
+        $|f[X]|< |X|$である.
+        $n,n_f\in \mathbb{N}$を用いて
+        $|f[X]|=n_f,|X|=n$とおくと,
+        $X$は$\{x_1,\dots , x_n\}$と表せて,
+        $f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せる.
+        ここで$|f[X]|=n_f<n$より$f(x_1),\dots,f(x_n)$たちにおいて,
+        ある$i,j(\i\neq j)$があって$f(x_i)=f(x_j)$となってなくてならない
+        \sbfootnote{
+          これは\textgt{鳩ノ巣原理}と呼ばれている.
+          ざっくりと説明すると$n<k$な自然数$n,k$があって$k$個のものを$n$個のグループに分けるとき,
+          どこかのグループには2つ以上のものが所属することになるということである.
+          言い換えると$k$個のものたちを1個ずつ所属するグループに分けるならば,
+          そのグループは$k$と同じ数だけ必要であるとことである.
+          この原理は色々な表現方法がある.
+          この数学教室のお客様であれば\cite{Basic001}のp143も参考にしてください.
+        }.
+
+        そのような$x_i,x_j$の存在は$f$が単射であったことに矛盾する.
+        よって$|X|=|f[X]|$.
+      \end{sub-block}
+
+      また$f$が全射なので$f[X]=Y$なので$|f[X]|=|Y|$.
+      よって$|X|=|Y|$. \qedhere
+  \end{itemize}
+\end{proof}
+
