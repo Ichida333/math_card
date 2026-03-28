@@ -3,134 +3,110 @@
 \label{section:自然数と加算集合}
 
 \begin{definition}[]
-  \label{definition:集合論的な自然数の定義}
-  以下のように、自然数nを集合論的に定義する.
+	\label{definition:集合論的な自然数の定義}
+	以下のように、自然数nを集合論的に定義する.
 
-  $0 = \emptyset, 1 = \mathcal{P}(\emptyset),
-  2 = \mathcal{P}(\mathcal{P}(\emptyset))と定義する.$
+	$0 = \emptyset, 1 = \mathcal{P}(\emptyset),
+		2 = \mathcal{P}(\mathcal{P}(\emptyset))と定義する.$
 
-  このとき、$ 1 = \mathcal{P}(\emptyset) = \{\emptyset\} = \emptyset \cup \{\emptyset\} = 0 \cup \{0\} = \{0\}.$
+	このとき、$ 1 = \mathcal{P}(\emptyset) = \{\emptyset\} = \emptyset \cup \{\emptyset\} = 0 \cup \{0\} = \{0\}.$
 
-  また、$ 2 = \mathcal{P}(\mathcal{P}(\emptyset)) = \mathcal{P}(\{\emptyset\}) 
-  = \{\emptyset, \{\emptyset\}\} = \{0, 1\}$
+	また、$ 2 = \mathcal{P}(\mathcal{P}(\emptyset)) = \mathcal{P}(\{\emptyset\})
+		= \{\emptyset, \{\emptyset\}\} = \{0, 1\}$
 
-  $n >= 3$のとき、$n = n - 1 \cup \{n - 1\}$と定義する.
+	$n >= 3$のとき、$n = n - 1 \cup \{n - 1\}$と定義する.
 
-  すると、$n = \{0,1,2,... n-1\}と表せる.$
+	すると、$n = \{0,1,2,... n-1\}と表せる.$
 
 \end{definition}
 
 
 \begin{definition}[]
-  \label{definition:有限集合、無限集合の定義}
-  $X$を集合とする。$X$が有限集合、あるいは無限集合であることを以下のように定義する。
+	\label{definition:有限集合、無限集合の定義}
+	$X$を集合とする。$X$が有限集合、あるいは無限集合であることを以下のように定義する。
 
-  $ Xは有限集合 \defarr \exists n \in \mathbb{N}\exists f( \; \BijectionMap{f}{n}{X} \; )$
+	$ Xは有限集合 \defarr \exists n \in \mathbb{N}\exists f( \; \BijectionMap{f}{n}{X} \; )$
 
-  $ Xは無限集合\defarr \forall n \in \mathbb{N}\forall f( \lnot \; \BijectionMap{f}{n}{X} \; )$
+	$ Xは無限集合\defarr \forall n \in \mathbb{N}\forall f( \lnot \; \BijectionMap{f}{n}{X} \; )$
 \end{definition}
 
 \begin{proposition}[]
-  $n$,$m$を自然数とする.このとき、以下は真である.
+	$n$,$m$を自然数とする.このとき、以下は真である.
 
-  $\BijectionMap{f}{N}{M} \rightarrow n = m$
+	$\BijectionMap{f}{n}{m} \rightarrow n = m$
 \end{proposition}
 
 \begin{proof}
-  \mbox{}
-  \begin{itemize}
+\mbox{}
+\begin{itemize}
 
-    $n$に関する帰納法で示す。
-    $n=0$なら、$N = \emptyset.$このとき、$M = \emptyset.$よって、$m = 0.$
-    $n > 0$とし、$n,m \ne 0$より、$n - 1 \in N, m - 1 \in M$. \\
-    $f (n - 1) := l \in M$とする.このとき、$ \map{g}{M}{M}$を
+$\varphi (n) \Leftrightarrow \BijectionMap{f}{n}{m} \rightarrow n = m$とする。 \\
+つまり、$\forall n \in \mathbb{N} (\varphi (n))$ のために、$n$に関する数学的帰納法で示す. \\
+\hspace{-0.5cm}（base step） \\
+(前件を仮定しないといけないかも。また、存在量化子かも。前件) \\
+$n=0=\emptyset$のとき、$\BijectionMap{f}{n}{m} \rightarrow n = m$より、 $m=\emptyset.$\\
+\begin{sub-block}{{\boldmath $\because$}\,}
+\begin{itemize}
+	\item[] \hspace{-0.5cm} \\
+				空写像の説明
+	      	\end{itemize}
+\end{sub-block}
+つまり、$n=m.$よって、$\varphi (0)$は真.\\
+\hspace{-0.5cm}（induction step） \\
+\begin{sub-block}{{\boldmath $\because$}\,}
+\begin{itemize}
+	\item[] \hspace{-0.5cm} \\
+				空写像の説明
+	      	\end{itemize}
+\end{sub-block}
 
-  \begin{equation*}
-    g(i)=
-    \begin{cases}
-      i & i \ne l, m - 1 \text{のとき},\\
-      l & i = m - 1\text{のとき},\\
-      m - 1  & i = l\text{のとき}
-    \end{cases}
-  \end{equation*}
+$n > 0$とし、$n,m \ne 0$より、$n - 1 \in N, m - 1 \in M$. \\
+\item[] \ImpDir{b}{a} \\
+$X\sim Y$より存在する$\BijectionMap{f}{X}{Y}$な$f$を1つとり固定する.
+$|X|=|f[X]|$である.
+\begin{sub-block}{{\boldmath $\because$}\,}
+$X$が有限集合なので,
+$f[X]$も有限である.
+\begin{sub-block}{{\boldmath $\because$}\,}
+$X$が有限なので$n\in \mathbb{N}$を用いて$|X|=n$とおくと,
+$X$は$\{x_1,\dots , x_n\}$と表せて,
+$f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せることからその要素数は明らかに$n$個以下であり,
+ゆえにその要素数は有限である.
+\end{sub-block}
 
-と定める.
+そしていつでも$|f[X]|\leq |X|$が成立する.
+\begin{sub-block}{{\boldmath $\because$}\,}
+$|f[X]|> |X|$だったとする.
+$n,n_f\in \mathbb{N}$を用いて
+$|f[X]|=n_f,|X|=n$とおくと,
+$X$は$\{x_1,\dots , x_n\}$と表せて,
+$f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せる.
+そして$f[X]$の要素の個数は$n$以下であるが,
+$|f[X]|=n_f$よりその要素数が$n$より大きい$n_f$であることは矛盾である.
+\end{sub-block}
 
-    \\
-      $X$は有限集合なので$n$を$|X|=n$な$n\in \mathbb{N}$とする.
-      よって$X$を$\{ x_1,\dots,x_n \}$と表す.
-      同様に$Y$を$\{ y_1,\dots,y_n \}$と表す.
-      $\map{f}{X}{Y}$な$f$を$i\in \{ 1,\dots,n\}$について$f(x_i)=y_i$で定める.
-      順序対の集合として$f$を表すならば$\SetBar{ \op{x_i}{y_i} }{ i\in \{ 1,\dots,n\} }$となる.
-      ここで$f$は全単射である.
-      \begin{sub-block}{{\boldmath $\because$}\,}
-        \begin{itemize}
-          \item[] \hspace{-0.5cm}（単射性） \\
-            任意に$x\neq \dash{x}$な$x,\dash{x}\in X$をとる.
-            するとある$i,j\in \{ 1,\dots,n\}$があって,
-            $i\neq j\land x=x_i\land \dash{x}=x_j$となっているので,
-            そんな$i,j$をそれぞれとって固定しておく.
-            すると$f(x)=f(x_i)=y_i$と$f(\dash{x})=f(x_j)=y_j$となるが,
-            $i\neq j$より$y_i\neq y_j$,
-            つまり$f(x)\neq f(\dash{x})$である.
+ここで背理法を用いるため$|f[X]|\neq |X|$だったとすると,
+$|f[X]|< |X|$である.
+$n,n_f\in \mathbb{N}$を用いて
+$|f[X]|=n_f,|X|=n$とおくと,
+$X$は$\{x_1,\dots , x_n\}$と表せて,
+$f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せる.
+ここで$|f[X]|=n_f<n$より$f(x_1),\dots,f(x_n)$たちにおいて,
+\sbfootnote{
+	これは\textgt{鳩ノ巣原理}と呼ばれている.
+	ざっくりと説明すると$n<k$な自然数$n,k$があって$k$個のものを$n$個のグループに分けるとき,
+	どこかのグループには2つ以上のものが所属することになるということである.
+	言い換えると$k$個のものたちを1個ずつ所属するグループに分けるならば,
+	そのグループは$k$と同じ数だけ必要であるとことである.
+	この原理は色々な表現方法がある.
+}.
 
-          \item[] \hspace{-0.5cm}（全射性） \\ 
-            任意に$y\in Y$をとる.
-            するとある$i\in \{ 1,\dots,n\}$があって,
-            $y=y_i$となっているので,
-            そんな$i$をとって固定しておく.
-            ここで$x\tempdefeq x_i$とおくと$x\in X$かつ$f(x)=f(x_i)=y_i=y$より$f(x)=y$である.
-            そんな$x$の存在より$\exists x\in X( f(x)=y )$は真である.
-        \end{itemize}
-      \end{sub-block}
-      そんな$f$の存在より$X\sim Y$である.
-      
-    \item[] \ImpDir{b}{a} \\
-      $X\sim Y$より存在する$\BijectionMap{f}{X}{Y}$な$f$を1つとり固定する.
-      $|X|=|f[X]|$である.
-      \begin{sub-block}{{\boldmath $\because$}\,}
-        $X$が有限集合なので,
-        $f[X]$も有限である.
-        \begin{sub-block}{{\boldmath $\because$}\,}
-          $X$が有限なので$n\in \mathbb{N}$を用いて$|X|=n$とおくと,
-          $X$は$\{x_1,\dots , x_n\}$と表せて,
-          $f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せることからその要素数は明らかに$n$個以下であり,
-          ゆえにその要素数は有限である.
-        \end{sub-block}
+そのような$x_i,x_j$の存在は$f$が単射であったことに矛盾する.
+よって$|X|=|f[X]|$.
+\end{sub-block}
 
-        そしていつでも$|f[X]|\leq |X|$が成立する.
-        \begin{sub-block}{{\boldmath $\because$}\,}
-          $|f[X]|> |X|$だったとする.
-          $n,n_f\in \mathbb{N}$を用いて
-          $|f[X]|=n_f,|X|=n$とおくと,
-          $X$は$\{x_1,\dots , x_n\}$と表せて,
-          $f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せる.
-          そして$f[X]$の要素の個数は$n$以下であるが,
-          $|f[X]|=n_f$よりその要素数が$n$より大きい$n_f$であることは矛盾である.
-        \end{sub-block}
-
-        ここで背理法を用いるため$|f[X]|\neq |X|$だったとすると,
-        $|f[X]|< |X|$である.
-        $n,n_f\in \mathbb{N}$を用いて
-        $|f[X]|=n_f,|X|=n$とおくと,
-        $X$は$\{x_1,\dots , x_n\}$と表せて,
-        $f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せる.
-        ここで$|f[X]|=n_f<n$より$f(x_1),\dots,f(x_n)$たちにおいて,
-        \sbfootnote{
-          これは\textgt{鳩ノ巣原理}と呼ばれている.
-          ざっくりと説明すると$n<k$な自然数$n,k$があって$k$個のものを$n$個のグループに分けるとき,
-          どこかのグループには2つ以上のものが所属することになるということである.
-          言い換えると$k$個のものたちを1個ずつ所属するグループに分けるならば,
-          そのグループは$k$と同じ数だけ必要であるとことである.
-          この原理は色々な表現方法がある.
-        }.
-
-        そのような$x_i,x_j$の存在は$f$が単射であったことに矛盾する.
-        よって$|X|=|f[X]|$.
-      \end{sub-block}
-
-      また$f$が全射なので$f[X]=Y$なので$|f[X]|=|Y|$.
-      よって$|X|=|Y|$. \qedhere
-  \end{itemize}
+また$f$が全射なので$f[X]=Y$なので$|f[X]|=|Y|$.
+よって$|X|=|Y|$. \qedhere
+\end{itemize}
 \end{proof}
 
