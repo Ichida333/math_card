@@ -3,21 +3,43 @@
 \label{section:自然数と加算集合}
 
 \begin{definition}[]
-  \label{definition:集合の対等関係}
-  $X$を集合とする。自然数$n$と全単射$n \rightarrow X$があるとき,$X$は有限集合であるという。
+  \label{definition:集合論的な自然数の定義}
+  以下のように、自然数nを集合論的に定義する.
 
-  つまり、 $\exists f( \; \BijectionMap{f}{n}{X} \; ) \defarr X$は有限集合
+  $0 = \emptyset, 1 = \mathcal{P}(\emptyset),
+  2 = \mathcal{P}(\mathcal{P}(\emptyset))と定義する.$
+
+  このとき、$ 1 = \mathcal{P}(\emptyset) = \{\emptyset\} = \emptyset \cup \{\emptyset\} = 0 \cup \{0\} = \{0\}.$
+
+  また、$ 2 = \mathcal{P}(\mathcal{P}(\emptyset)) = \mathcal{P}(\{\emptyset\}) 
+  = \{\emptyset, \{\emptyset\}\} = \{0, 1\}$
+
+  $n >= 3$のとき、$n = n - 1 \cup \{n - 1\}$と定義する.
+
+  すると、$n = \{0,1,2,... n-1\}と表せる.$
+
+\end{definition}
+
+
+\begin{definition}[]
+  \label{definition:有限集合、無限集合の定義}
+  $X$を集合とする。$X$が有限集合、あるいは無限集合であることを以下のように定義する。
+
+  $ Xは有限集合 \defarr \exists n \in \mathbb{N}\exists f( \; \BijectionMap{f}{n}{X} \; )$
+
+  $ Xは無限集合\defarr \forall n \in \mathbb{N}\forall f( \lnot \; \BijectionMap{f}{n}{X} \; )$
 \end{definition}
 
 \begin{proposition}[]
-  1. $n$,$m$を自然数とする、また、$n$,$m$を集合で表したものを$N = \{0,1,2,3.., n-1\}$, $M = \{0,1,2,3.., m-1\}$とおく。
+  $n$,$m$を自然数とする.このとき、以下は真である.
 
-  このとき、$\BijectionMap{f}{N}{M} \rightarrow n = m$
+  $\BijectionMap{f}{N}{M} \rightarrow n = m$
 \end{proposition}
 
 \begin{proof}
   \mbox{}
   \begin{itemize}
+
     $n$に関する帰納法で示す。
     $n=0$なら、$N = \emptyset.$このとき、$M = \emptyset.$よって、$m = 0.$
     $n > 0$とし、$n,m \ne 0$より、$n - 1 \in N, m - 1 \in M$. \\
@@ -94,7 +116,6 @@
         $X$は$\{x_1,\dots , x_n\}$と表せて,
         $f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せる.
         ここで$|f[X]|=n_f<n$より$f(x_1),\dots,f(x_n)$たちにおいて,
-        ある$i,j(\i\neq j)$があって$f(x_i)=f(x_j)$となってなくてならない
         \sbfootnote{
           これは\textgt{鳩ノ巣原理}と呼ばれている.
           ざっくりと説明すると$n<k$な自然数$n,k$があって$k$個のものを$n$個のグループに分けるとき,
@@ -102,7 +123,6 @@
           言い換えると$k$個のものたちを1個ずつ所属するグループに分けるならば,
           そのグループは$k$と同じ数だけ必要であるとことである.
           この原理は色々な表現方法がある.
-          この数学教室のお客様であれば\cite{Basic001}のp143も参考にしてください.
         }.
 
         そのような$x_i,x_j$の存在は$f$が単射であったことに矛盾する.
