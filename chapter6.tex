@@ -31,26 +31,23 @@
 \end{definition}
 
 \begin{proposition}[]
-	$n$,$m$を自然数とする.このとき、以下は真である.
-
-	$\BijectionMap{f}{n}{m} \rightarrow n = m$
+	$\forall n ,m \in \mathbb{N} (\exists f(\BijectionMap{f}{n}{m}) \rightarrow n = m)$
 \end{proposition}
 
 \begin{proof}
 \mbox{}
 \begin{itemize}
 
-$\varphi (n) \Leftrightarrow \BijectionMap{f}{n}{m} \rightarrow n = m$とする。 \\
+	$\varphi (n) \Leftrightarrow \forall m \in \mathbb{N} (\exists f(\BijectionMap{f}{n}{m}) \rightarrow n = m)$とする。 \\
 つまり、$\forall n \in \mathbb{N} (\varphi (n))$ のために、$n$に関する数学的帰納法で示す. \\
 \hspace{-0.5cm}（base step） \\
-(前件を仮定しないといけないかも。また、存在量化子かも。前件) \\
-$n=0=\emptyset$のとき、$\BijectionMap{f}{n}{m} \rightarrow n = m$より、 $m=\emptyset.$\\
-\begin{sub-block}{{\boldmath $\because$}\,}
-\begin{itemize}
-	\item[] \hspace{-0.5cm} \\
-				空写像の説明
-	      	\end{itemize}
-\end{sub-block}
+(goal) $\forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{\emptyset}{m}) \rightarrow \emptyset = m)$ \\
+$m \neq \emptyset$とし、背理法で示す.\\
+任意に$m \in \mathbb{N}$をとる.\\
+$\exists f(\BijectionMap{f}{\emptyset}{m})$が真より、そんな$f$を一つとり、固定する.\\
+$f$は全射的であるので、以下は真.\\
+$\forall y \in m \exists x \in \emptyset (f(x) = y)$\\
+これは、$\forall x \in \emptyset$が偽であることに矛盾する.よって、goalは真.
 つまり、$n=m.$よって、$\varphi (0)$は真.\\
 \hspace{-0.5cm}（induction step） \\
 \begin{sub-block}{{\boldmath $\because$}\,}
