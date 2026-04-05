@@ -2,108 +2,54 @@
 \section{自然数と加算集合}
 \label{section:自然数と加算集合}
 
-\begin{definition}[]
+\begin{definition}[自然数を集合論的に構成, p16]
 	\label{definition:集合論的な自然数の定義}
-	以下のように、自然数nを集合論的に定義する.
-
-	$0 = \emptyset, 1 = \mathcal{P}(\emptyset),
-		2 = \mathcal{P}(\mathcal{P}(\emptyset))と定義する.$
-
-	このとき、$ 1 = \mathcal{P}(\emptyset) = \{\emptyset\} = \emptyset \cup \{\emptyset\} = 0 \cup \{0\} = \{0\}.$
-
-	また、$ 2 = \mathcal{P}(\mathcal{P}(\emptyset)) = \mathcal{P}(\{\emptyset\})
-		= \{\emptyset, \{\emptyset\}\} = \{0, 1\}$
-
-	$n >= 3$のとき、$n = n - 1 \cup \{n - 1\}$と定義する.
-
-	すると、$n = \{0,1,2,... n-1\}と表せる.$
-
+	以下のように,自然数$n$を集合論的に構成できる.\\
+	$n = 0$のとき$n = \emptyset,n = 1 のときn = \mathcal{P}(\emptyset),
+	n = 2のときn = \mathcal{P}(\mathcal{P}(\emptyset))と定義する.$\\
+	このとき,$1=\mathcal{P}(\emptyset) = \{\emptyset\} = \emptyset \cup \{\emptyset\} = 0 \cup \{0\} = \{0\}.$\\
+	また,$2=\mathcal{P}(\mathcal{P}(\emptyset))=\mathcal{P}(\{\emptyset\}) 
+	= \{\emptyset, \{\emptyset\}\}  = 1 \cup \{1\} = \{0, 1\}$\\
+	$n >= 3$のとき,$n = n - 1 \cup \{n - 1\}$と定義する.すると,$n = \{0,1,2,... n-1\}と表せる.$
 \end{definition}
 
-
-\begin{definition}[]
-	\label{definition:有限集合、無限集合の定義}
-	$X$を集合とする。$X$が有限集合、あるいは無限集合であることを以下のように定義する。
-
-	$ Xは有限集合 \defarr \exists n \in \mathbb{N}\exists f( \; \BijectionMap{f}{n}{X} \; )$
-
-	$ Xは無限集合\defarr \forall n \in \mathbb{N}\forall f( \lnot \; \BijectionMap{f}{n}{X} \; )$
+\begin{definition}[有限集合,無限集合の定義, p183]
+	\label{definition:有限集合,無限集合の定義}
+	$X$を集合とする。$X$が有限集合,あるいは無限集合であることを以下のように定義する.\\
+	$ Xは有限集合 \defarr \exists n \in \mathbb{N}\exists f( \; \BijectionMap{f}{n}{X} \; )$\\
+	$ Xは無限集合\defarr \forall n \in \mathbb{N}\forall f( \lnot \; \BijectionMap{f}{n}{X} \; )$\\
 \end{definition}
 
 \begin{proposition}[]
+	$n,m$を自然数とし,$f:n \rightarrow m$を全単射とする.このとき,$n=m$である.論理式は以下.\\
 	$\forall n ,m \in \mathbb{N} (\exists f(\BijectionMap{f}{n}{m}) \rightarrow n = m)$
 \end{proposition}
 
-\begin{proof}
-\mbox{}
-\begin{itemize}
+\begin{proof} $\varphi (n) :\Leftrightarrow \forall m \in \mathbb{N} (\exists f(\BijectionMap{f}{n}{m}) \rightarrow n = m)$とし、$n$に関する数学的帰納法で示す.\\
 
-	$\varphi (n) \Leftrightarrow \forall m \in \mathbb{N} (\exists f(\BijectionMap{f}{n}{m}) \rightarrow n = m)$とする。 \\
-つまり、$\forall n \in \mathbb{N} (\varphi (n))$ のために、$n$に関する数学的帰納法で示す. \\
-\hspace{-0.5cm}（base step） \\
-(goal) $\forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{\emptyset}{m}) \rightarrow \emptyset = m)$ \\
-$m \neq \emptyset$とし、背理法で示す.\\
-任意に$m \in \mathbb{N}$をとる.\\
-$\exists f(\BijectionMap{f}{\emptyset}{m})$が真より、そんな$f$を一つとり、固定する.\\
-$f$は全射的であるので、以下は真.\\
+(goal) $\varphi (0) \land \forall n \in \mathbb{N} ( \varphi (n-1) \rightarrow \varphi (n))$\\
+
+(base step)(goalA) $\varphi (0) \Leftrightarrow  \forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{0}{m}) \rightarrow 0 = m)$ \\
+$m \neq 0$とし,背理法で示す.\\
+任意に$m \in \mathbb{N}$をとる.また,$\exists f(\BijectionMap{f}{0}{m})$は真より,そんな$f$を一つとり固定.\\
+$ 0 = \emptyset$より,$\BijectionMap{f}{\emptyset}{m}$は真.よって,$\SurjectionMap{f}{\emptyset}{m}$も真なので,以下が成り立つ.\\
 $\forall y \in m \exists x \in \emptyset (f(x) = y)$\\
-これは、$\forall x \in \emptyset$が偽であることに矛盾する.よって、goalは真.
-つまり、$n=m.$よって、$\varphi (0)$は真.\\
-\hspace{-0.5cm}（induction step） \\
-\begin{sub-block}{{\boldmath $\because$}\,}
-\begin{itemize}
-	\item[] \hspace{-0.5cm} \\
-				空写像の説明
-	      	\end{itemize}
-\end{sub-block}
+今、$m \neq \emptyset$なので,$\exists x \in \emptyset (f(x) = y)$が真であるが,
+これは,$\forall x \in \emptyset$が偽であることに矛盾する.よって,goalAは真.\\
 
-$n > 0$とし、$n,m \ne 0$より、$n - 1 \in N, m - 1 \in M$. \\
-\item[] \ImpDir{b}{a} \\
-$X\sim Y$より存在する$\BijectionMap{f}{X}{Y}$な$f$を1つとり固定する.
-$|X|=|f[X]|$である.
-\begin{sub-block}{{\boldmath $\because$}\,}
-$X$が有限集合なので,
-$f[X]$も有限である.
-\begin{sub-block}{{\boldmath $\because$}\,}
-$X$が有限なので$n\in \mathbb{N}$を用いて$|X|=n$とおくと,
-$X$は$\{x_1,\dots , x_n\}$と表せて,
-$f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せることからその要素数は明らかに$n$個以下であり,
-ゆえにその要素数は有限である.
-\end{sub-block}
-
-そしていつでも$|f[X]|\leq |X|$が成立する.
-\begin{sub-block}{{\boldmath $\because$}\,}
-$|f[X]|> |X|$だったとする.
-$n,n_f\in \mathbb{N}$を用いて
-$|f[X]|=n_f,|X|=n$とおくと,
-$X$は$\{x_1,\dots , x_n\}$と表せて,
-$f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せる.
-そして$f[X]$の要素の個数は$n$以下であるが,
-$|f[X]|=n_f$よりその要素数が$n$より大きい$n_f$であることは矛盾である.
-\end{sub-block}
-
-ここで背理法を用いるため$|f[X]|\neq |X|$だったとすると,
-$|f[X]|< |X|$である.
-$n,n_f\in \mathbb{N}$を用いて
-$|f[X]|=n_f,|X|=n$とおくと,
-$X$は$\{x_1,\dots , x_n\}$と表せて,
-$f[X]$は$\{ f(x_1),\dots,f(x_n)\}$と表せる.
-ここで$|f[X]|=n_f<n$より$f(x_1),\dots,f(x_n)$たちにおいて,
-\sbfootnote{
-	これは\textgt{鳩ノ巣原理}と呼ばれている.
-	ざっくりと説明すると$n<k$な自然数$n,k$があって$k$個のものを$n$個のグループに分けるとき,
-	どこかのグループには2つ以上のものが所属することになるということである.
-	言い換えると$k$個のものたちを1個ずつ所属するグループに分けるならば,
-	そのグループは$k$と同じ数だけ必要であるとことである.
-	この原理は色々な表現方法がある.
-}.
-
-そのような$x_i,x_j$の存在は$f$が単射であったことに矛盾する.
-よって$|X|=|f[X]|$.
-\end{sub-block}
-
-また$f$が全射なので$f[X]=Y$なので$|f[X]|=|Y|$.
-よって$|X|=|Y|$. \qedhere
-\end{itemize}
+(induction step)(goalB) $\forall n \in \mathbb{N} ( \varphi (n-1) \rightarrow \varphi (n)) \\
+\Leftrightarrow \forall n \in \mathbb{N}(\forall m' \in \mathbb{N}  (\exists f'(\BijectionMap{f'}{n-1}{m'}) \rightarrow  n-1 = m') \rightarrow 
+\forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{n}{m}) \rightarrow  n = m))$ \\
+任意に$n \in \mathbb{N}(n>0)$をとり,前件を仮定して,後件を示す.\\
+任意に$m \in \mathbb{N}$をとる.また,$\exists f(\BijectionMap{f}{n}{m})$は真より,そんな$f$を一つとり固定.\\
+$l:=f(m-1)$とおく.\\
+$g:=\{<k,k> \mid k \neq l, m-1 \} \cup \{<k,l> \mid k = m-1 \} \cup \{<k,m-1> \mid k = l \}$とする.\\
+$g \circ g = id_m$なので,$\BijectionMap{g \circ g}{m}{m}$は真.よって,$\BijectionMap{g}{m}{m}$も真.\\
+また,$\BijectionMap{f}{n}{m}, \BijectionMap{g}{m}{m}$より,$\BijectionMap{g \circ f}{n}{m}$も真.\\
+$f':= g \circ f \setminus \{<n-1, m-1>\}$とおく.\\
+$g \circ f(n-1) = g(l) = m-1$より,$\BijectionMap{f'}{n-1}{m-1}$は真.\\
+$m-1 \in \mathbb{N}$と,$f'$の存在と,帰納法の仮定より,$n-1=m-1$\\
+$n=n-1 \cup \{n-1\}, m=m-1 \cup \{m-1\}$と表せる.\\
+これと,$n-1=m-1$より,$n=m$.よってgoalは真.\\
 \end{proof}
 
