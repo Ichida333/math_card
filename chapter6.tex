@@ -20,7 +20,7 @@
 	$ Xは無限集合\defarr \forall n \in \mathbb{N}\forall f( \lnot \; \BijectionMap{f}{n}{X} \; )$\\
 \end{definition}
 
-\begin{proposition}[]
+\begin{proposition}[有限集合の元の数が確定する, p184]
 	$n,m$を自然数とし,$f:n \rightarrow m$を全単射とする.このとき,$n=m$である.論理式は以下.\\
 	$\forall n ,m \in \mathbb{N} (\exists f(\BijectionMap{f}{n}{m}) \rightarrow n = m)$
 \end{proposition}
@@ -53,3 +53,30 @@ $n=n-1 \cup \{n-1\}, m=m-1 \cup \{m-1\}$と表せる.\\
 これと,$n-1=m-1$より,$n=m$.よってgoalは真.\\
 \end{proof}
 
+\begin{proposition}[自然数の集合$\mathbb{N}$は無限集合, p184]
+  $\forall n \in \mathbb{N}\forall f( \lnot \; \BijectionMap{f}{n}{\mathbb{N}} \; )$
+\end{proposition}
+
+
+\begin{proof} $\varphi (n) :\Leftrightarrow \forall f( \lnot \; \BijectionMap{f}{n}{\mathbb{N}} \; )$とし、$n$に関する数学的帰納法で示す.\\
+(goal) $\varphi (0) \land \forall n \in \mathbb{N} ( \varphi (n-1) \rightarrow \varphi (n))$\\
+
+(base step)(goalA) $\varphi (0) \Leftrightarrow  \forall f( \lnot \; \BijectionMap{f}{0}{\mathbb{N}} \; )$ \\
+背理法で示す.よって、$\exists f(  \; \BijectionMap{f}{0}{\mathbb{N}} \; )$が真とする.そんな$f$を一つとり固定する.\\
+$ 0 = \emptyset$より,$\BijectionMap{f}{\emptyset}{m}$は真.よって,$\SurjectionMap{f}{\emptyset}{m}$も真なので,以下が成り立つ.\\
+$\forall y \in \mathbb{N} \exists x \in \emptyset (f(x) = y)$\\
+今、$\mathbb{N} \neq \emptyset$なので,$\exists x \in \emptyset (f(x) = y)$が真であるが,
+これは,$\forall x \in \emptyset$が偽であることに矛盾する.よって,goalAは真.\\
+
+(induction step)(goalB) $\forall n \in \mathbb{N}(n > 0) ( \varphi (n-1) \rightarrow \varphi (n)) 
+\Leftrightarrow \forall n \in \mathbb{N}(n > 0) ( \forall f( \lnot \; \BijectionMap{f}{n - 1}{\mathbb{N}} \; ) \rightarrow \forall f( \lnot \; \BijectionMap{f}{n}{\mathbb{N}} \; ))$
+任意に$n \in \mathbb{N}(n > 0)$をとる.
+$\exists f(\; \BijectionMap{f}{n}{\mathbb{N}} \; )$を真とし,背理法で示す.\\
+$\exists f(\; \BijectionMap{f}{n}{\mathbb{N}} \; )$が真より,そんな$f$を一つとり,固定.\\
+$m := f(n-1)$とおく.\\
+$g:=\{<k,k> \mid k<= m-1 \} \cup \{<k,k-1> \mid m < k \}$とおくと,$\map{f}{\{m\}}{\mathbb{N}}$である.\\
+$f':=f \setminus \{<n-1, m>\}$とおく.すると,$\BijectionMap{f'}{n-1}{\mathbb{N} \setminus \{m\}}$\\
+よって、$\BijectionMap{g \circ f'}{n-1}{\mathbb{N} \setminus \{m\}}$\\
+これは,帰納法の仮定に矛盾する.よってgoalは真.
+
+\end{proof}
