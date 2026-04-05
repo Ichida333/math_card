@@ -78,5 +78,12 @@ $g:=\{<k,k> \mid k<= m-1 \} \cup \{<k,k-1> \mid m < k \}$とおくと,$\map{f}{\
 $f':=f \setminus \{<n-1, m>\}$とおく.すると,$\BijectionMap{f'}{n-1}{\mathbb{N} \setminus \{m\}}$\\
 よって、$\BijectionMap{g \circ f'}{n-1}{\mathbb{N} \setminus \{m\}}$\\
 これは,帰納法の仮定に矛盾する.よってgoalは真.
-
 \end{proof}
+
+\begin{definition}[]
+	\label{definition:合論的な自然数の定義}
+	$Xを集合とする.$\\
+	1. $\forall n \in \mathbb{N} (\exists f (\BijectionMap{f}{n}{\mathbb{N}})) \rightarrow nをXの濃度と呼び,n=CardXと表す.$\\
+	2. $\exists f (\BijectionMap{f}{\mathbb{N}}{X}) \rightarrow Xは加算無限集合であるといい,CardX=\aleph_0と表す.$\\
+	$Xが有限集合であるか,無限集合であるとき,Xは加算であるという.$
+\end{definition}
