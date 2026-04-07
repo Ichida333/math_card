@@ -41,16 +41,19 @@ $\forall y \in m \exists x \in \emptyset (f(x) = y)$\\
 \Leftrightarrow \forall n \in \mathbb{N}(\forall m' \in \mathbb{N}  (\exists f'(\BijectionMap{f'}{n-1}{m'}) \rightarrow  n-1 = m') \rightarrow 
 \forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{n}{m}) \rightarrow  n = m))$ \\
 任意に$n \in \mathbb{N}(n>0)$をとり,前件を仮定して,後件を示す.\\
-任意に$m \in \mathbb{N}$をとる.また,$\exists f(\BijectionMap{f}{n}{m})$は真より,そんな$f$を一つとり固定.\\
+任意に$m \in \mathbb{N}$をとる.このとき,$m \neq 0$である.\\
+また,$\exists f(\BijectionMap{f}{n}{m})$は真より,そんな$f$を一つとり固定.\\
 $l:=f(m-1)$とおく.\\
 $g:=\{<k,k> \mid k \neq l, m-1 \} \cup \{<k,l> \mid k = m-1 \} \cup \{<k,m-1> \mid k = l \}$とする.\\
 $g \circ g = id_m$なので,$\BijectionMap{g \circ g}{m}{m}$は真.よって,$\BijectionMap{g}{m}{m}$も真.\\
 また,$\BijectionMap{f}{n}{m}, \BijectionMap{g}{m}{m}$より,$\BijectionMap{g \circ f}{n}{m}$も真.\\
 $f':= g \circ f \setminus \{<n-1, m-1>\}$とおく.\\
 $g \circ f(n-1) = g(l) = m-1$より,$\BijectionMap{f'}{n-1}{m-1}$は真.\\
-$m-1 \in \mathbb{N}$と,$f'$の存在と,帰納法の仮定より,$n-1=m-1$\\
+$m-1 \in \mathbb{N}$と,帰納法の仮定より,$ \exists f'(\BijectionMap{f'}{n-1}{m-1})\rightarrow  n-1 = m-1$が真.\\
+また、$f'$の存在より,$\exists f'(\BijectionMap{f'}{n-1}{m-1})$は真.ゆえに,$n-1 = m-1$は真.\\
 $n=n-1 \cup \{n-1\}, m=m-1 \cup \{m-1\}$と表せる.\\
-これと,$n-1=m-1$より,$n=m$.よってgoalは真.\\
+これと,$n-1=m-1$より,$n=m$.よってgoalBは真.\\
+goalA $\land$ goalBが真より、goalは真.\\
 \end{proof}
 
 \begin{proposition}[自然数の集合$\mathbb{N}$は無限集合, p184]
@@ -63,7 +66,7 @@ $n=n-1 \cup \{n-1\}, m=m-1 \cup \{m-1\}$と表せる.\\
 
 (base step)(goalA) $\varphi (0) \Leftrightarrow  \forall f( \lnot \; \BijectionMap{f}{0}{\mathbb{N}} \; )$ \\
 背理法で示す.よって、$\exists f(  \; \BijectionMap{f}{0}{\mathbb{N}} \; )$が真とする.そんな$f$を一つとり固定する.\\
-$ 0 = \emptyset$より,$\BijectionMap{f}{\emptyset}{m}$は真.よって,$\SurjectionMap{f}{\emptyset}{m}$も真なので,以下が成り立つ.\\
+$ 0 = \emptyset$より,$\BijectionMap{f}{\emptyset}{\mathbb{N}}$は真.よって,$\SurjectionMap{f}{\emptyset}{\mathbb{N}}$も真なので,以下が成り立つ.\\
 $\forall y \in \mathbb{N} \exists x \in \emptyset (f(x) = y)$\\
 今、$\mathbb{N} \neq \emptyset$なので,$\exists x \in \emptyset (f(x) = y)$が真であるが,
 これは,$\forall x \in \emptyset$が偽であることに矛盾する.よって,goalAは真.\\
