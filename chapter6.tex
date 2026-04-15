@@ -27,32 +27,50 @@
 
 \begin{proof} $\varphi (n) :\Leftrightarrow \forall m \in \mathbb{N} (\exists f(\BijectionMap{f}{n}{m}) \rightarrow n = m)$とし、$n$に関する数学的帰納法で示す.\\
 
-(goal) $\varphi (0) \land \forall n \in \mathbb{N} ( \varphi (n-1) \rightarrow \varphi (n))$\\
+(goal) $\varphi (0) \land \forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1))$\\
 
 (base step)(goalA) $\varphi (0) \Leftrightarrow  \forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{0}{m}) \rightarrow 0 = m)$ \\
-$m \neq 0$とし,背理法で示す.\\
 任意に$m \in \mathbb{N}$をとる.また,$\exists f(\BijectionMap{f}{0}{m})$は真より,そんな$f$を一つとり固定.\\
+$m \neq 0$とし,背理法で示す.\\
 $ 0 = \emptyset$より,$\BijectionMap{f}{\emptyset}{m}$は真.よって,$\SurjectionMap{f}{\emptyset}{m}$も真なので,以下が成り立つ.\\
 $\forall y \in m \exists x \in \emptyset (f(x) = y)$\\
 今、$m \neq \emptyset$なので,$\exists x \in \emptyset (f(x) = y)$が真であるが,
 これは,$\forall x \in \emptyset$が偽であることに矛盾する.よって,goalAは真.\\
 
-(induction step)(goalB) $\forall n \in \mathbb{N} ( \varphi (n-1) \rightarrow \varphi (n)) \\
-\Leftrightarrow \forall n \in \mathbb{N}(\forall m' \in \mathbb{N}  (\exists f'(\BijectionMap{f'}{n-1}{m'}) \rightarrow  n-1 = m') \rightarrow 
-\forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{n}{m}) \rightarrow  n = m))$ \\
-任意に$n \in \mathbb{N}(n>0)$をとり,前件を仮定して,後件を示す.\\
-任意に$m \in \mathbb{N}$をとる.このとき,$m \neq 0$である.\\
-また,$\exists f(\BijectionMap{f}{n}{m})$は真より,そんな$f$を一つとり固定.\\
-$l:=f(m-1)$とおく.\\
+(induction step)(goalB) $\forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1)) \\
+\Leftrightarrow \forall n \in \mathbb{N}(\forall m' \in \mathbb{N}  (\exists f'(\BijectionMap{f'}{n}{m'}) \rightarrow  n = m') \rightarrow 
+\forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{n+1}{m}) \rightarrow  n+1 = m))$ \\
+任意に$n,m \in \mathbb{N}$をとる.\\
+また,$\exists f(\BijectionMap{f}{n+1}{m})$は真より,そんな$f$を一つとり固定.\\
+このとき、$m \neq 0$,つまり$m-1 \in \mathbb{N}$である.\\
+
+\begin{sub-block}{{\boldmath $\because$}\,}
+\begin{itemize}
+\item[] \hspace{-0.5cm} \\
+	いま、$\BijectionMap{f}{n+1}{m}$が真で、$n \in \mathbb{N}$より、$n+1 \neq 0$.\\
+　$m = 0$とすると、$\BijectionMap{f}{n+1}{m}$が成り立たないので、$m \neq 0$
+\end{itemize}
+\end{sub-block}
+
+$l:=f(n)$とおく.\\
 $g:=\{<k,k> \mid k \neq l, m-1 \} \cup \{<k,l> \mid k = m-1 \} \cup \{<k,m-1> \mid k = l \}$とする.\\
 $g \circ g = id_m$なので,$\BijectionMap{g \circ g}{m}{m}$は真.よって,$\BijectionMap{g}{m}{m}$も真.\\
-また,$\BijectionMap{f}{n}{m}, \BijectionMap{g}{m}{m}$より,$\BijectionMap{g \circ f}{n}{m}$も真.\\
-$f':= g \circ f \setminus \{<n-1, m-1>\}$とおく.\\
-$g \circ f(n-1) = g(l) = m-1$より,$\BijectionMap{f'}{n-1}{m-1}$は真.\\
-$m-1 \in \mathbb{N}$と,帰納法の仮定より,$ \exists f'(\BijectionMap{f'}{n-1}{m-1})\rightarrow  n-1 = m-1$が真.\\
-また、$f'$の存在より,$\exists f'(\BijectionMap{f'}{n-1}{m-1})$は真.ゆえに,$n-1 = m-1$は真.\\
-$n=n-1 \cup \{n-1\}, m=m-1 \cup \{m-1\}$と表せる.\\
-これと,$n-1=m-1$より,$n=m$.よってgoalBは真.\\
+
+\begin{sub-block}{{\boldmath $\because$}\,}
+\begin{itemize}
+\item[] \hspace{-0.5cm} \\
+	$\BijectionMap{g \circ g}{m}{m}$は真より,$\SurjectionMap{g \circ g}{m}{m} \land \InjectionMap{g \circ g}{m}{m}$.\\
+	このとき,$\SurjectionMap{g}{m}{m} \land \InjectionMap{g}{m}{m}$は真より,(問題集)$\BijectionMap{g}{m}{m}$も真.
+\end{itemize}
+\end{sub-block}
+
+また,$\BijectionMap{f}{n+1}{m}, \BijectionMap{g}{m}{m}$より,$\BijectionMap{g \circ f}{n+1}{m}$も真.\\
+$f':= g \circ f \setminus \{<n, m-1>\}$とおく.\\
+$g \circ f(n) = g(l) = m-1$より,$\BijectionMap{f'}{n}{m-1}$は真.\\
+$m-1 \in \mathbb{N}$と,帰納法の仮定より,$ \exists f'(\BijectionMap{f'}{n}{m-1})\rightarrow  n = m-1$が真.\\
+また、$f'$の存在より,$\exists f'(\BijectionMap{f'}{n}{m-1})$は真.ゆえに,$n = m-1$は真.\\
+$n+1=n \cup \{n\}, m=m-1 \cup \{m-1\}$と表せる.\\
+これと,$n=m-1$より,$n+1=m$.よってgoalBは真.\\
 goalA $\land$ goalBが真より、goalは真.\\
 \end{proof}
 
@@ -62,7 +80,7 @@ goalA $\land$ goalBが真より、goalは真.\\
 
 
 \begin{proof} $\varphi (n) :\Leftrightarrow \forall f( \lnot \; \BijectionMap{f}{n}{\mathbb{N}} \; )$とし、$n$に関する数学的帰納法で示す.\\
-(goal) $\varphi (0) \land \forall n \in \mathbb{N} ( \varphi (n-1) \rightarrow \varphi (n))$\\
+(goal) $\varphi (0) \land \forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1))$\\
 
 (base step)(goalA) $\varphi (0) \Leftrightarrow  \forall f( \lnot \; \BijectionMap{f}{0}{\mathbb{N}} \; )$ \\
 背理法で示す.よって、$\exists f(  \; \BijectionMap{f}{0}{\mathbb{N}} \; )$が真とする.そんな$f$を一つとり固定する.\\
@@ -71,12 +89,11 @@ $\forall y \in \mathbb{N} \exists x \in \emptyset (f(x) = y)$\\
 今、$\mathbb{N} \neq \emptyset$なので,$\exists x \in \emptyset (f(x) = y)$が真であるが,
 これは,$\forall x \in \emptyset$が偽であることに矛盾する.よって,goalAは真.\\
 
-(induction step)(goalB) $\forall n \in \mathbb{N}(n > 0) ( \varphi (n-1) \rightarrow \varphi (n)) 
-\Leftrightarrow \forall n \in \mathbb{N}(n > 0) ( \forall f( \lnot \; \BijectionMap{f}{n - 1}{\mathbb{N}} \; ) \rightarrow \forall f( \lnot \; \BijectionMap{f}{n}{\mathbb{N}} \; ))$
-任意に$n \in \mathbb{N}(n > 0)$をとる.
-$\exists f(\; \BijectionMap{f}{n}{\mathbb{N}} \; )$を真とし,背理法で示す.\\
-$\exists f(\; \BijectionMap{f}{n}{\mathbb{N}} \; )$が真より,そんな$f$を一つとり,固定.\\
-$m := f(n-1)$とおく.\\
+(induction step)(goalB) $\forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1)) 
+\Leftrightarrow \forall n \in \mathbb{N} ( \forall f( \lnot \; \BijectionMap{f}{n}{\mathbb{N}} \; ) \rightarrow \forall f( \lnot \; \BijectionMap{f}{n+1}{\mathbb{N}} \; ))$\\
+任意に$n \in \mathbb{N}, \lnot \BijectionMap{f}{n}{\mathbb{N}}$をとる.\\
+背理法で示すので,$\exists f(\; \BijectionMap{f}{n+1}{\mathbb{N}} \; )$が真とする.よって,そんな$f$を一つとり,固定.\\
+$m := f(n)$とおく.\\
 $g:=\{<k,k> \mid k<= m-1 \} \cup \{<k,k-1> \mid m < k \}$とおくと,$\map{f}{\{m\}}{\mathbb{N}}$である.\\
 $f':=f \setminus \{<n-1, m>\}$とおく.すると,$\BijectionMap{f'}{n-1}{\mathbb{N} \setminus \{m\}}$\\
 よって、$\BijectionMap{g \circ f'}{n-1}{\mathbb{N} \setminus \{m\}}$\\
