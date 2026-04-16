@@ -91,13 +91,14 @@ $\forall y \in \mathbb{N} \exists x \in \emptyset (f(x) = y)$\\
 
 (induction step)(goalB) $\forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1)) 
 \Leftrightarrow \forall n \in \mathbb{N} ( \forall f( \lnot \; \BijectionMap{f}{n}{\mathbb{N}} \; ) \rightarrow \forall f( \lnot \; \BijectionMap{f}{n+1}{\mathbb{N}} \; ))$\\
-任意に$n \in \mathbb{N}, \lnot \BijectionMap{f}{n}{\mathbb{N}}$をとる.\\
+任意に$n \in \mathbb{N}, f'(\lnot \BijectionMap{f'}{n}{\mathbb{N}})$をとる.\\
 背理法で示すので,$\exists f(\; \BijectionMap{f}{n+1}{\mathbb{N}} \; )$が真とする.よって,そんな$f$を一つとり,固定.\\
 $m := f(n)$とおく.\\
-$g:=\{<k,k> \mid k<= m-1 \} \cup \{<k,k-1> \mid m < k \}$とおくと,$\map{f}{\{m\}}{\mathbb{N}}$である.\\
-$f':=f \setminus \{<n-1, m>\}$とおく.すると,$\BijectionMap{f'}{n-1}{\mathbb{N} \setminus \{m\}}$\\
-よって、$\BijectionMap{g \circ f'}{n-1}{\mathbb{N} \setminus \{m\}}$\\
-これは,帰納法の仮定に矛盾する.よってgoalは真.
+$g:=\{<k,k> \mid k<= m-1 \} \cup \{<k,k-1> \mid m < k \}$とおくと,$\map{g}{\mathbb{N} \setminus \{m\}}{\mathbb{N}}$である.\\
+$h:=f \setminus \{<n, m>\}$とおく.すると,$\BijectionMap{h}{n}{\mathbb{N} \setminus \{m\}}$\\
+よって、$\BijectionMap{g \circ h}{n}{\mathbb{N}}$\\
+これは,帰納法の仮定に矛盾する.よってgoalBは真.\\
+goalA $\land$ goalBが真より,goalは真.\\
 \end{proof}
 
 \begin{definition}[]
