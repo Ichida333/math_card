@@ -51,6 +51,7 @@ $\forall y \in m \exists x \in \emptyset (f(x) = y)$\\
 　$m = 0$とすると、$\BijectionMap{f}{n+1}{m}$が成り立たないので、$m \neq 0$
 \end{itemize}
 \end{sub-block}
+$m-1 \in \mathbb{N}$と,帰納法の仮定より,$ \exists f'(\BijectionMap{f'}{n}{m-1})\rightarrow  n = m-1$が真.\\
 
 $l:=f(n)$とおく.\\
 $g:=\{<k,k> \mid k \neq l, m-1 \} \cup \{<k,l> \mid k = m-1 \} \cup \{<k,m-1> \mid k = l \}$とする.\\
@@ -67,8 +68,7 @@ $g \circ g = id_m$なので,$\BijectionMap{g \circ g}{m}{m}$は真.よって,$\B
 また,$\BijectionMap{f}{n+1}{m}, \BijectionMap{g}{m}{m}$より,$\BijectionMap{g \circ f}{n+1}{m}$も真.\\
 $f':= g \circ f \setminus \{<n, m-1>\}$とおく.\\
 $g \circ f(n) = g(l) = m-1$より,$\BijectionMap{f'}{n}{m-1}$は真.\\
-$m-1 \in \mathbb{N}$と,帰納法の仮定より,$ \exists f'(\BijectionMap{f'}{n}{m-1})\rightarrow  n = m-1$が真.\\
-また、$f'$の存在より,$\exists f'(\BijectionMap{f'}{n}{m-1})$は真.ゆえに,$n = m-1$は真.\\
+$f'$の存在より,$\exists f'(\BijectionMap{f'}{n}{m-1})$は真.ゆえに,$n = m-1$は真.\\
 $n+1=n \cup \{n\}, m=m-1 \cup \{m-1\}$と表せる.\\
 これと,$n=m-1$より,$n+1=m$.よってgoalBは真.\\
 goalA $\land$ goalBが真より、goalは真.\\
@@ -103,8 +103,37 @@ goalA $\land$ goalBが真より,goalは真.\\
 
 \begin{definition}[]
 	\label{definition:合論的な自然数の定義}
-	$Xを集合とする.$\\
-	1. $\forall n \in \mathbb{N} (\exists f (\BijectionMap{f}{n}{\mathbb{N}})) \rightarrow nをXの濃度と呼び,n=CardXと表す.$\\
-	2. $\exists f (\BijectionMap{f}{\mathbb{N}}{X}) \rightarrow Xは加算無限集合であるといい,CardX=\aleph_0と表す.$\\
-	$Xが有限集合であるか,無限集合であるとき,Xは加算であるという.$
+	$X$を集合とする.\\
+	1. $\forall n \in \mathbb{N} (\exists f (\BijectionMap{f}{n}{\mathbb{N}})) \rightarrow$ $n$を$X$の濃度と呼び,
+	$n=\operatorname{Card}(X)$と表す.\\
+	2. $\exists f (\BijectionMap{f}{\mathbb{N}}{X}) \rightarrow$ $X$は加算無限集合であるといい,$\operatorname{Card}(X)=\aleph_0$と表す.\\
+	$X$が有限集合であるか,無限集合であるとき,
+	$X$は加算であるという.
 \end{definition}
+
+\begin{proposition}[p184]
+	部分集合$A \subset \mathbb{N}$に対し,
+	関数$\map{C_A}{\mathbb{N}}{\mathbb{N}}$を帰納的に$C_A=0$と,
+  \begin{equation*}
+    C_A(m + 1)=
+    \begin{cases}
+      C_A(m) + 1 & m \in A\text{のとき},\\
+      C_A(m)  & m \not\in A \text{のとき}
+    \end{cases}
+  \end{equation*}
+  で定める.\\
+  1. $n$を自然数とし,$A \subseteq n$とする.このとき,$\operatorname{Card}(A)=C_A(n) \leq n$であり,
+  $C_A\restriction_{{A}}$は全単射.
+  また,
+  $C_A(n)=n$ならば,
+  $A=n$.\\
+ 論理式は以下.\\
+ $\forall n \in \mathbb{N}(A \subseteq n \rightarrow \operatorname{Card}(A)=C_A(n) \leq n \land \BijectionMap{C_A\restriction_{{A}}}{A}{CardA}
+ \land C_A(n) = n \rightarrow A=n)$
+\end{proposition}
+
+\begin{proof} $\varphi (n) :A \subseteq n \rightarrow ((\operatorname{Card}(A)=C_A(n) \leq n) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
+ \land (C_A(n) = n \rightarrow A=n))$とし、$n$に関する数学的帰納法で示す.\\
+(base step)(goalA) $\varphi (0) \Leftrightarrow A \subseteq 0 \rightarrow ((\operatorname{Card}(A)=C_A(0) \leq 0) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
+ \land (C_A(0) = n \rightarrow A=0)) $ \\
+\end{proof}
