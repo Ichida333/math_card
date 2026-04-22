@@ -29,7 +29,7 @@
 
 (goal) $\varphi (0) \land \forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1))$\\
 
-(base step)(goalA) $\varphi (0) \Leftrightarrow  \forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{0}{m}) \rightarrow 0 = m)$ \\
+(base step) $\varphi (0) \Leftrightarrow  \forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{0}{m}) \rightarrow 0 = m)$ \\
 任意に$m \in \mathbb{N}$をとる.また,$\exists f(\BijectionMap{f}{0}{m})$は真より,そんな$f$を一つとり固定.\\
 $m \neq 0$とし,背理法で示す.\\
 $ 0 = \emptyset$より,$\BijectionMap{f}{\emptyset}{m}$は真.よって,$\SurjectionMap{f}{\emptyset}{m}$も真なので,以下が成り立つ.\\
@@ -37,7 +37,7 @@ $\forall y \in m \exists x \in \emptyset (f(x) = y)$\\
 今、$m \neq \emptyset$なので,$\exists x \in \emptyset (f(x) = y)$が真であるが,
 これは,$\forall x \in \emptyset$が偽であることに矛盾する.よって,goalAは真.\\
 
-(induction step)(goalB) $\forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1)) \\
+(induction step) $\forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1)) \\
 \Leftrightarrow \forall n \in \mathbb{N}(\forall m' \in \mathbb{N}  (\exists f'(\BijectionMap{f'}{n}{m'}) \rightarrow  n = m') \rightarrow 
 \forall m \in \mathbb{N}  (\exists f(\BijectionMap{f}{n+1}{m}) \rightarrow  n+1 = m))$ \\
 任意に$n,m \in \mathbb{N}$をとる.\\
@@ -128,12 +128,32 @@ goalA $\land$ goalBが真より,goalは真.\\
   $C_A(n)=n$ならば,
   $A=n$.\\
  論理式は以下.\\
- $\forall n \in \mathbb{N}(A \subseteq n \rightarrow \operatorname{Card}(A)=C_A(n) \leq n \land \BijectionMap{C_A\restriction_{{A}}}{A}{CardA}
+ $\forall n \in \mathbb{N}(A \subseteq n \rightarrow \operatorname{Card}(A)=C_A(n) \leq n \land \BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)}
  \land C_A(n) = n \rightarrow A=n)$
 \end{proposition}
 
 \begin{proof} $\varphi (n) :A \subseteq n \rightarrow ((\operatorname{Card}(A)=C_A(n) \leq n) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
  \land (C_A(n) = n \rightarrow A=n))$とし、$n$に関する数学的帰納法で示す.\\
-(base step)(goalA) $\varphi (0) \Leftrightarrow A \subseteq 0 \rightarrow ((\operatorname{Card}(A)=C_A(0) \leq 0) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
+ 
+(base step) $\varphi (0) \Leftrightarrow A \subseteq 0 \rightarrow ((\operatorname{Card}(A)=C_A(0) \leq 0) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
  \land (C_A(0) = n \rightarrow A=0)) $ \\
+(1) \\
+$A \subseteq 0$より,$A=\emptyset$.
+つまり,
+$\operatorname{Card}(A)=\operatorname{Card}(\emptyset)=\emptyset=C_A(0)$.
+また,
+$C_A(0)\leq 0$も真.\\
+よって,
+$\operatorname{Card}(A)=C_A(0) \leq 0$は真.\\
+(2)\\
+$C_A(0)=0\rightarrow A=0$も成り立つ.\\
+(3)\\
+$A=\operatorname{Card}(A)=\emptyset$より,
+$\BijectionMap{C_A\restriction_{{A}}}{\emptyset}{\emptyset}$\\
+
+(induction step) $\forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1))$ \\
+$\forall n\in\mathbb{N} ((A \subseteq n \rightarrow ((\operatorname{Card}(A)=C_A(n) \leq n) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
+ \land (C_A(n) = n \rightarrow A=n))) \\
+ \rightarrow (A \subseteq n+1 \rightarrow ((\operatorname{Card}(A)=C_A(n+1) \leq n+1) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
+ \land (C_A(n+1) = n+1 \rightarrow A=n+1))))$
 \end{proof}
