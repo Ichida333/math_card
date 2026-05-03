@@ -152,8 +152,40 @@ $A=\operatorname{Card}(A)=\emptyset$より,
 $\BijectionMap{C_A\restriction_{{A}}}{\emptyset}{\emptyset}$\\
 
 (induction step) $\forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1))$ \\
-$\forall n\in\mathbb{N} ((A \subseteq n \rightarrow ((\operatorname{Card}(A)=C_A(n) \leq n) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
- \land (C_A(n) = n \rightarrow A=n))) \\
- \rightarrow (A \subseteq n+1 \rightarrow ((\operatorname{Card}(A)=C_A(n+1) \leq n+1) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
- \land (C_A(n+1) = n+1 \rightarrow A=n+1))))$
+$\forall n\in\mathbb{N} ((A_n \subseteq n \rightarrow ((\operatorname{Card}(A_n) = C_{A_n}(n) \leq n) \land (\BijectionMap{C_{A_n}\restriction_{{A_n}}}{A_n}{\operatorname{Card}(A_n)})
+\land (C_{A_n}(n) = n \rightarrow A_n=n))) \\
+ \rightarrow (A_{n+1} \subseteq n+1 \rightarrow ((\operatorname{Card}(A_{n+1})=C_{A_{n+1}}(n+1) \leq n+1) \land (\BijectionMap{C_{A_{n+1}}\restriction_{{A_{n+1}}}}{A_{n+1}}{\operatorname{Card}(A_{n+1})})
+ \land (C_{A_{n+1}}(n+1) = n+1 \rightarrow A_{n+1}=n+1))))$\\
+ 任意に$n\in\mathbb{N}$をとり,
+ 前件を仮定して後件をしめす.\\
+ $A_n=A_{n+1}\cap n$とおく.\\
+ ($n \not\in A_{n+1}$) のとき\\
+ (1) \\
+ $A_{n+1}=A_n$より,
+ $C_{A_{n+1}}(n+1) = C_{A_{n+1}}(n) = C_{A_n}(n) = \operatorname{Card}(A_n) = \operatorname{Card}(A_{n+1})$\\
+ また, $\operatorname{Card}(A_n) \leq n-1$より,
+ $\operatorname{Card}(A_{n+1}) \leq n$.\\
+ (2) \\
+ 仮定の$\BijectionMap{C_{A_n}\restriction_{{A_n}}}{A_n}{\operatorname{Card}(A_n)}$と,
+ $A_{n+1}=A_n$より$\BijectionMap{C_{A_{n+1}}\restriction_{{A_{n+1}}}}{A_{n+1}}{\operatorname{Card}(A_{n+1})}$.\\
+ ($n \in A_{n+1}$) のとき\\
+ (1) \\
+ $C_{A_{n+1}} = C_{A_n}+1 = \operatorname{Card}(A_n) + 1 = \operatorname{Card}(A_{n+1})$.\\
+ また,
+ $\operatorname{Card}(A_n) \leq n$より,
+ $\operatorname{Card}(A_{n+1}) \leq n+1$.\\
+ (2) \\
+ $\BijectionMap{C_{A_n}\restriction_{{A_n}}}{A_n}{\operatorname{Card}(A_n)}$と,
+ $A_{n+1} = A_n \cup \{n\}$,
+ $\operatorname{Card}(A_{n+1}) = \operatorname{Card}(A_n)+1$より,\\
+ $\BijectionMap{C_{A_{n+1}}\restriction_{{A_{n+1}}}}{A_{n+1}}{\operatorname{Card}(A_{n+1})}$は真.\\
+ (3) \\
+ $C_{A_{n+1}}(n+1)=n+1$とする.\\
+ $\operatorname{Card}(A_n)=n$より,
+ $n \in A_{n+1}$で$C_{A_n}(n) = n$.\\
+ 帰納法の仮定より$A_n=n$.\\
+ $A_{n+1} = A_n \cup n$より,
+ $A_{n+1} = n+1$.\\
+
+ 
 \end{proof}
