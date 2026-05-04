@@ -126,12 +126,12 @@ $\BijectionMap{h}{n}{\mathbb{N} \setminus \{m\}}$\\
   で定める.\\
   1. $n$を自然数とし,
   $A \subseteq n$とする.
-  このとき,$\operatorname{Card}(A)=C_A(n) \leq n$であり,
-  $C_A\restriction_{{A}}$は全単射.
+  このとき,
+  $\operatorname{Card}(A)=C_A(n) \leq n$であり,
+  $C_A$の制限は全単射$\map{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)}$を定める.
   また,
   $C_A(n)=n$ならば,
-  $A=n$.\\
- 論理式は以下.\\
+  $A=n$である.論理式は以下.\\
  $\forall n \in \mathbb{N}(A \subseteq n \rightarrow ((\operatorname{Card}(A)=C_A(n) \leq n ) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)}
  ) \land (C_A(n) = n \rightarrow A=n)))$
 \end{proposition}
@@ -154,7 +154,7 @@ $\BijectionMap{C_A\restriction_{{A}}}{\emptyset}{\emptyset}$.\\
 (3)\\
 $C_A(0)=0\rightarrow A=0$も成り立つ.\\
 
-(induction step) $\forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1))$ \\
+(induction step) $\forall n \in \mathbb{N} ( \varphi (n) \rightarrow \varphi (n+1)) \Leftrightarrow$ \\
 $\forall n\in\mathbb{N} ((A_n \subseteq n \rightarrow ((\operatorname{Card}(A_n) = C_{A_n}(n) \leq n) \land (\BijectionMap{C_{A_n}\restriction_{{A_n}}}{A_n}{\operatorname{Card}(A_n)})
 \land (C_{A_n}(n) = n \rightarrow A_n=n))) \\
  \rightarrow (A_{n+1} \subseteq n+1 \rightarrow ((\operatorname{Card}(A_{n+1})=C_{A_{n+1}}(n+1) \leq n+1) \land (\BijectionMap{C_{A_{n+1}}\restriction_{{A_{n+1}}}}{A_{n+1}}{\operatorname{Card}(A_{n+1})})
