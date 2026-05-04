@@ -124,7 +124,9 @@ $\BijectionMap{h}{n}{\mathbb{N} \setminus \{m\}}$\\
     \end{cases}
   \end{equation*}
   で定める.\\
-  1. $n$を自然数とし,$A \subseteq n$とする.このとき,$\operatorname{Card}(A)=C_A(n) \leq n$であり,
+  1. $n$を自然数とし,
+  $A \subseteq n$とする.
+  このとき,$\operatorname{Card}(A)=C_A(n) \leq n$であり,
   $C_A\restriction_{{A}}$は全単射.
   また,
   $C_A(n)=n$ならば,
@@ -140,16 +142,15 @@ $\BijectionMap{h}{n}{\mathbb{N} \setminus \{m\}}$\\
 (base step) $\varphi (0) \Leftrightarrow A \subseteq 0 \rightarrow ((\operatorname{Card}(A)=C_A(0) \leq 0) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
  \land (C_A(0) = n \rightarrow A=0)) $ \\
 (1) \\
-$A \subseteq 0$より,$A=\emptyset$.
+$A \subseteq 0$より,
+$A=\emptyset$.
 つまり,
-$\operatorname{Card}(A)=\operatorname{Card}(\emptyset)=\emptyset=C_A(0)$.
-また,
-$C_A(0)\leq 0$も真.\\
-よって,
+$\operatorname{Card}(A)=\operatorname{Card}(\emptyset)=\emptyset=C_A(0)$.\\
+$C_A(0)\leq 0$も真より,
 $\operatorname{Card}(A)=C_A(0) \leq 0$は真.\\
 (2)\\
-$A=\operatorname{Card}(A)=\emptyset$より,
-$\BijectionMap{C_A\restriction_{{A}}}{\emptyset}{\emptyset}$\\
+$A=\emptyset$より,
+$\BijectionMap{C_A\restriction_{{A}}}{\emptyset}{\emptyset}$.\\
 (3)\\
 $C_A(0)=0\rightarrow A=0$も成り立つ.\\
 
