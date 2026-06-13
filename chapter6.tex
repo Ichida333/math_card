@@ -133,7 +133,11 @@ $\BijectionMap{h}{n}{\mathbb{N} \setminus \{m\}}$\\
   $C_A(n)=n$ならば,
   $A=n$である.論理式は以下.\\
  $\forall n \in \mathbb{N}(A \subseteq n \rightarrow ((\operatorname{Card}(A)=C_A(n) \leq n ) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)}
- ) \land (C_A(n) = n \rightarrow A=n)))$
+ ) \land (C_A(n) = n \rightarrow A=n)))$\\
+ 2. $A \subseteq n$をみたす自然数$n$は存在しないと仮定する.このとき,
+ $\map {\seigen {C_A}{A}}{A}{\mathbb{N}}$は全単射である.論理式は以下.\\
+ $\not \exists n (A \subseteq n) \rightarrow \BijectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}}$
+ 
 \end{proposition}
 
 \begin{proof} $\varphi (n) :A \subseteq n \rightarrow ((\operatorname{Card}(A)=C_A(n) \leq n) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\operatorname{Card}(A)})
@@ -173,6 +177,8 @@ $\forall n\in\mathbb{N} ((A \subseteq n \rightarrow ((\operatorname{Card}(A) = C
      C_{A_n}(n) = \operatorname{Card}(A_n) \leq n  & n \not\in A \text{のとき}
     \end{cases}
   \end{equation*}
+
+ ($\varphi_1(n+1) \land \varphi_2(n+1)$)\\
  ($n \not\in A$) のとき\\
  $A=A_n$より,
  $\operatorname{Card}(A) = \operatorname{Card}(A_n).$\\
@@ -191,6 +197,7 @@ $\forall n\in\mathbb{N} ((A \subseteq n \rightarrow ((\operatorname{Card}(A) = C
  $C_A(n) = C_{A_n}(n) = \Card{A_n}$より,
  $\BijectionMap {\seigen {C_A}{A}}{A}{\Card{A}}$.\\
  
+ $(\varphi_3(n+1))$\\
  $C_{A}(n+1)=n+1$と仮定する.\\
  このとき$n \in A$なので,
  $C_A(n+1) = C_{A_n}(n) + 1 = n + 1$より,
@@ -199,4 +206,34 @@ $\forall n\in\mathbb{N} ((A \subseteq n \rightarrow ((\operatorname{Card}(A) = C
  $A_n = n$.\\
  $A = A_n \cup \{n\}$なので,
  $A = n+1$.\\
+\end{proof}
+
+\begin{proof}
+ goal:= $\not \exists n (A \subseteq n) \rightarrow \InjectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}} \land \SurjectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}}$\\
+
+ $\not \exists n (A \subseteq n)$が真とする.\\
+ 任意に$x_1, x_2 \in A$をとり,
+ $\seigen {C_A}{A}(x_1) = \seigen{C_A}{A}(x_2)$とする.\\
+ 
+ $(\InjectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}}$)\\
+ $m:= \operatorname{max}(x_1, x_2) + 1$とおき,
+ $A_m := A \cap m$とおく.\\
+ $x_1, x_2 < m$より,
+ $x_1, x_2 \in m$.
+ よって$x_1, x_2 \in A_m$\\
+ また,
+ $A_m \subseteq m$と1.より,
+$\InjectionMap{\seigen {C_{A_m}}{A_m}}{A_m}{\Card{A_m}}$.\\
+ これと$x_1, x_2 \in A_m$より,
+ $\seigen{C_{A_m}}{A_m}(x_1) = \seigen{C_{A_m}}{A_m}(x_2) \rightarrow x_1 = x_2$.\\
+ また,
+ $\seigen {C_A}{m} = \seigen {C_{A_m}}{m}$と,
+ $x_1, x_2 < m$より\\
+ $\seigen {C_A}{A}(x_1) = \seigen {C_{A_m}}{A_m}(x_1), \seigen {C_A}{A}(x_1) = \seigen {C_{A_m}}{m}(x_2)$.\\
+ よって$\seigen{C_{A_m}}{A_m}(x_1) = \seigen{C_{A_m}}{A_m}(x_2)$.
+ なので,
+ $x_1 = x_2$\\
+ 
+ $(\SurjectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}}$)\\
+
 \end{proof}
