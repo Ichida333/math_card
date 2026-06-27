@@ -1,0 +1,31 @@
+\begin{proof}
+ goal:= $\lnot \exists n (A \subseteq n) \rightarrow \InjectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}} \land \SurjectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}}$\\
+
+ $\not \exists n (A \subseteq n)$が真とする.\\
+ 任意に$x_1, x_2 \in A$をとり,
+ $\seigen {C_A}{A}(x_1) = \seigen{C_A}{A}(x_2)$とする.\\
+ 
+ $(\InjectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}}$)\\
+ $m:= \operatorname{max}(x_1, x_2) + 1$とおき,
+ $A_m := A \cap m$とおく.\\
+ $x_1, x_2 < m$より,
+ $x_1, x_2 \in m$.
+ よって$x_1, x_2 \in A_m$\\
+ また,
+ $A_m \subseteq m$と1.より,
+$\InjectionMap{\seigen {C_{A_m}}{A_m}}{A_m}{\Card{A_m}}$.\\
+ これと$x_1, x_2 \in A_m$より,
+ $\seigen{C_{A_m}}{A_m}(x_1) = \seigen{C_{A_m}}{A_m}(x_2) \rightarrow x_1 = x_2$.\\
+ また,
+ $\seigen {C_A}{m} = \seigen {C_{A_m}}{m}$と,
+ $x_1, x_2 < m$より\\
+ $\seigen {C_A}{A}(x_1) = \seigen {C_{A_m}}{A_m}(x_1), \seigen {C_A}{A}(x_1) = \seigen {C_{A_m}}{m}(x_2)$.\\
+ よって$\seigen{C_{A_m}}{A_m}(x_1) = \seigen{C_{A_m}}{A_m}(x_2)$.
+ なので,
+ $x_1 = x_2$\\
+ 
+ $(\SurjectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}}$)\\
+
+$C_A\mid_A$
+
+\end{proof}

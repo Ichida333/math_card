@@ -1,0 +1,25 @@
+\begin{proof} 2. $\varphi (n) :\Leftrightarrow \forall f( \lnot \; \BijectionMap{f}{n}{\nat} \; )$とし、$n$に関する数学的帰納法で示す.\\
+(goal) $\varphi (0) \land \forall n \in \nat ( \varphi (n) \rightarrow \varphi (n+1))$\\
+
+(base step) $\varphi (0) \Leftrightarrow  \forall f( \lnot \; \BijectionMap{f}{\emptyset}{\nat} \; )$ \\
+背理法で示す.よって、$\exists f(  \; \BijectionMap{f}{\emptyset}{\nat} \; )$が真とする.そんな$f$を一つとり固定する.\\
+$\SurjectionMap{f}{\emptyset}{\nat}$も真なので,以下が成り立つ.\\
+$\forall y \in \nat \exists x \in \emptyset (f(x) = y)$\\
+$\nat \neq \emptyset$なので,
+$\exists y'(y' \in \nat)$は真.そんな$y'$を1つとり固定する.\\
+$\exists x \in \emptyset (f(x) = y')$が真であるが,
+これは,$\exists x (x \not\in \emptyset)$が真であることに矛盾する.\\
+
+(induction step) $\forall n \in \nat ( \varphi (n) \rightarrow \varphi (n+1)) 
+\Leftrightarrow \forall n \in \nat ( \forall f_n( \lnot \; \BijectionMap{f_n}{n}{\nat} \; ) \rightarrow \forall f( \lnot \; \BijectionMap{f_{n+1}}{n+1}{\nat} \; ))$\\
+任意に$n \in \nat$をとる.\\
+任意に$f_n(\lnot \BijectionMap{f_n}{n}{\nat})$をとる.\\
+背理法で示すので,$\exists f_{n+1}(\; \BijectionMap{f_{n+1}}{n+1}{\nat} \; )$が真とする.そんな$f$を一つとり固定.\\
+$m := f_{n+1}(n)$とおく.\\
+$g:=\{<k,k> \mid k \leq m-1 \land k \in \nat\} \cup \{<k,k-1> \mid m < k \land k \in \nat\}$とおくと,
+$\BijectionMap{g}{\nat \setminus \{m\}}{\nat}$である.\\
+$h:= f_{n+1} \setminus \{<n, m>\}$とおく.すると,
+$\BijectionMap{h}{n}{\nat \setminus \{m\}}$\\
+よって、$\BijectionMap{g \circ h}{n}{\nat}$\\
+この写像の存在は帰納法の仮定に矛盾する.\\
+\end{proof}

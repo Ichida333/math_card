@@ -1,0 +1,67 @@
+\begin{proof} $\varphi (n) :A \subseteq n \rightarrow ((\Card(A)=C_A(n) \leq n) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\Card(A)})
+ \land (C_A(n) = n \rightarrow A=n))$とし、$n$に関する数学的帰納法で示す.\\
+ 
+(base step) $\varphi (0) \Leftrightarrow A \subseteq 0 \rightarrow ((\Card(A)=C_A(0) \leq 0) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\Card(A)})
+ \land (C_A(0) = n \rightarrow A=0)) $ \\
+$A \subseteq 0$より,
+$A=\emptyset$.
+$\Card(A)=\Card(\emptyset)=\emptyset=C_A(0)$.\\
+$C_A(0)\leq 0$も真より,
+$\Card(A)=C_A(0) \leq 0$は真.\\
+$A=\emptyset$より,
+$\BijectionMap{C_A\restriction_{{A}}}{\emptyset}{\emptyset}$.今,
+$\Card{A} = \emptyset$ より $\varphi_2(0)$は真.\\
+$C_A(0)=0\rightarrow A=0$も成り立つ.\\
+
+(induction step) $\forall n \in \nat ( \varphi (n) \rightarrow \varphi (n+1)) \Leftrightarrow$ \\
+$\forall n\in\nat ((A \subseteq n \rightarrow ((\Card(A) = C_A(n) \leq n) \land (\BijectionMap{C_{A}\restriction_{{A}}}{A}{\Card(A)})
+\land (C_A(n) = n \rightarrow A=n))) \\
+ \rightarrow (A \subseteq n+1 \rightarrow ((\Card(A)=C_{A}(n+1) \leq n+1) \land (\BijectionMap{C_{A}\restriction_{{A}}}{A}{\Card(A)})
+ \land (C_{A}(n+1) = n+1 \rightarrow A=n+1))))$\\
+ 任意に$n\in\nat$をとり,
+ 前件を仮定して後件をしめす.\\
+ $A \subseteq n+1$を仮定する.\\
+ $A_n=A\cap n$とおくと,
+ $A_n \subseteq A$であり,
+ これと帰納法の仮定より$\varphi_1(n) \land \varphi_2(n) \land \varphi 3(n)$は真.\\
+ また,
+ $C_A \restriction {n+1} = C_{A_n} \restriction {n+1}$より,
+ $C_A(n) = C_{A_n}(n)$.\\
+ これと$C_A$の定義と$\varphi_1 (n)$より以下が成り立つ.\\
+  \begin{equation*}
+    C_A(n + 1)=
+    \begin{cases}
+     C_{A_n}(n) + 1 =  \Card(A_n) + 1 \leq n + 1& n \in A\text{のとき},\\
+     C_{A_n}(n) = \Card(A_n) \leq n  & n \not\in A \text{のとき}
+    \end{cases}
+  \end{equation*}
+
+ ($\varphi_1(n+1) \land \varphi_2(n+1)$)\\
+ ($n \not\in A$) のとき\\
+ $A=A_n$より,
+ $\Card(A) = \Card(A_n).$\\
+ よって,
+ $C_A(n+1) = \Card(A_n) = \Card(A) \leq n \leq n+1.$\\
+ $\varphi_2 (n)$と$A=A_n$より,
+ $\varphi_2 (n+1)$は真.\\
+ ($n \in A$) のとき\\
+ $\Card(A) = \Card(A_n) + 1.$\\
+ よって$C_A(n+1) = \Card(A_n) + 1 = \Card(A) \leq n+1$\\
+ また,
+ $A_n \subseteq n$と$C_A \restriction {n} = C_{A_n} \restriction {n}$より,
+ $C_A \restriction {A_n} = C_{A_n} \restriction {A_n}$\\
+ これと$\varphi_2(n)$より$\BijectionMap {C_A\restriction {A_n}}{A_n}{\Card{A_n}}$\\
+ また,
+ $C_A(n) = C_{A_n}(n) = \Card{A_n}$より,
+ $\BijectionMap {\seigen {C_A}{A}}{A}{\Card{A}}$.\\
+ 
+ $(\varphi_3(n+1))$\\
+ $C_{A}(n+1)=n+1$と仮定する.\\
+ このとき$n \in A$なので,
+ $C_A(n+1) = C_{A_n}(n) + 1 = n + 1$より,
+ $C_{A_n}(n) = n$.\\
+ これと$\varphi_3(n)$より,
+ $A_n = n$.\\
+ $A = A_n \cup \{n\}$なので,
+ $A = n+1$.\\
+\end{proof}
