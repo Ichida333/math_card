@@ -1,6 +1,5 @@
-\begin{proof}
- goal:= $\forall n \in \nat \exists a \in A(a > n) \rightarrow \BijectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}} $\\
-
+\begin{proof} 2.
+ goal:= $\forall n \in \nat \exists x \in A(x > n) \rightarrow \BijectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}} $\\
  
  $(\InjectionMap{\seigen{C_A}{A}}{A}{\mathbb{N}})
  \Leftrightarrow \forall x_1, x_2 \in A 
@@ -15,51 +14,57 @@
  また,
  $A_m \subseteq m$と1.より,
 $\InjectionMap{\seigen {C_{A_m}}{A_m}}{A_m}{\Card{A_m}}$.\\
- これと$x_1, x_2 \in A_m$より,以下が成り立つ.
+ 1.より,
+ $\seigen {C_{A_m}}{A_m} = \seigen {C_A}{A_m}$.\\
+ これと$x_1, x_2 \in A_m$より以下が成り立つ.
  \begin{equation*}
- \seigen{C_{A_m}}{A_m}(x_1) = \seigen{C_{A_m}}{A_m}(x_2) \rightarrow x_1 = x_2(*)
+ \seigen{C_A}{A_m}(x_1) = \seigen{C_A}{A_m}(x_2) \rightarrow x_1 = x_2
  \end{equation*}
  また,
- $A_m \subseteq m$より,
- $\seigen {C_A}{m} = \seigen {C_{A_m}}{m}$.\\
- これと$x_1, x_2 < m$より\\
- $\seigen {C_A}{A}(x_1) = \seigen {C_{A_m}}{A_m}(x_1), \seigen {C_A}{A}(x_1) = \seigen {C_{A_m}}{A_m}(x_2)$.\\
- よって$\seigen{C_{A_m}}{A_m}(x_1) = \seigen{C_{A_m}}{A_m}(x_2)$.
- これと(*)より
- $x_1 = x_2$\\
+ $x_1, x_2 < m$より,
+ $\seigen{C_A}{A}(x_1) = \seigen{C_A}{A_m}(x_1)$,
+ $\seigen{C_A}{A}(x_2) = \seigen{C_A}{A_m}(x_2)$\\
+ これより,
+ $\seigen{C_A}{A_m}(x_1) = \seigen{C_A}{A_m}(x_2)$.\\
+ よって$x_1 = x_2$.\\
  
- $\forall k \in \nat \exists x \in A(x > k)$が真とする.\\
  $(\SurjectionMap{\seigen{C_A}{A}}{A}{\nat}) 
  \Leftrightarrow \forall n \in \nat (n \in C_A[A])$\\
+ 前件を仮定し、後件を示す.\\
  $\varphi (n) = (n \in C_A[A])$とし,
  $\forall n \in \nat (\varphi (n) \rightarrow \varphi (n+1))$を$n$に関する数学的帰納法で示す.\\
  (base step)\\
  仮定に$k=0$を代入すると,
- $\exists a \in A(a > 0)$が真より,
- そんな$a$を一つとり固定.\\
- $m := a + 1$とおき,
+ $\exists x \in A(x > 0)$が真より,
+ そんな$x$を一つとり固定.\\
+ $m := x + 1$とおき,
  $A_m := A \cap m$とおく.\\
- 1.より,
- $C_A[A_m] = \Card{A_m} > 0$なので,
- $0 \in C_A[A_m] \subseteq C_A[A]$\\
+ すると,
+ $x < m$より$x \in m \land x \in A$なので$A_m \neq \emptyset$.\\
+ これと1.より$C_A[A_m] = \Card{A_m} > 0$.
+ よって$0 \in C_A[A_m].$\\
+ $A_m \subseteq A$より$C_A[A] \subseteq C_A[A_m]$\\
+ これと$0 \in C_A[A_m]$より$0 \in C_A[A].$\\
  (induction step)\\
  任意に$n\in \nat$をとる.\\
+ 前件を仮定し後件を示す.\\
  $\varphi (n)$より,
  $\exists m \in A (C_A(m) = n)$が真.
  よってそんな$m$を一つとり固定.\\
  $C_A$の定義より,
- $C_A(m+1) = n+1$.\\
+ $C_A(m+1) = C_A(m) +1 = n+1$.\\
  $m \in \nat$と仮定より,
  $\exists m' \in A(m' > m)$が真より,
  そんな$m'$を一つとり固定.\\
  $A_{m'+1} := A \cap m'+1$とおくと,
- 1.より$C_A[A_{m'+1}] = C_A(m'+1)$\\
+ 1.より$C_A[A_{m'+1}] = \Card{A_{m'+1}} = C_A(m'+1)$.\\
  $m' \geq m+1$より,
- $C_A(m') \geq C_A(m+1) = n+1$.\\
+ $C_A(m') \geq C_A(m+1) = n+1$.
+ つまり$n+1 \in C_A(m') + 1$\\
  さらに,
- $m' \in A$より$C_A(m'+1) = C_A(m') + 1$\\
+ $m' \in A$と$C_A$の定義より$C_A(m'+1) = C_A(m') + 1$\\
  これらをまとめると,
  以下が成り立つ.\\
- $n+1 \in  C_A(m') + 1 = C_A(m' + 1) = C_A[A_{m'+1}] \subseteq C_A[m]$.\\
+ $n+1 \in  C_A(m') + 1 = C_A(m' + 1) = C_A[A_{m'+1}] \subseteq C_A[A]$.\\
 
 \end{proof}

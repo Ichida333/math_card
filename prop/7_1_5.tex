@@ -1,5 +1,5 @@
 \begin{proposition}[p185の命題7.1.5]
-	部分集合$A \subset \nat$に対し,
+	$A \subseteq \nat$に対し,
 	関数$\map{C_A}{\nat}{\nat}$を帰納的に$C_A(0)=0$と,
   \begin{equation*}
     C_A(m + 1)=
@@ -12,19 +12,26 @@
   1. $n$を自然数とし,
   $A \subseteq n$とする.
   このとき,
-  $\Card(A)=C_A(n) \leq n$であり,
-  $C_A$の制限は全単射$\map{\seigen {C_A}{A}}{A}{\Card(A)}$を定める.
+  $\Card{A}=C_A(n) \leq n$であり,
+  $C_A$の$A$への制限は$A$から$\Card{A}$の全単射を定める.
   また,
   $C_A(n)=n$ならば,
   $A=n$である.論理式は以下.
-  
+  \begin{equation*}
+    \forall n \in \nat A \subseteq n \rightarrow
+    \begin{cases}
+     \Card{A}=C_A(n) \leq n\\
+     \BijectionMap{\seigen{C_A}{A}}{A}{\Card{A}}\\
+     C_A(n) = n \rightarrow A=n\\
+    \end{cases}
+  \end{equation*}
+ 1.1\\
  \begin{equation*}
-   \forall n \in \nat(A \subseteq n \rightarrow ((\Card{A}=C_A(n) \leq n ) \land (\BijectionMap{C_A\restriction_{{A}}}{A}{\Card{A}}
- ) \land (C_A(n) = n \rightarrow A=n)))
+   A_m = A \cap m \land m \in \nat \rightarrow \seigen{C_{A_m}}{A_m} = \seigen{C_A}{A_m}
  \end{equation*}
  2. $A \subseteq n$をみたす自然数$n$は存在しないと仮定する.このとき,
  $\map {\seigen {C_A}{A}}{A}{\nat}$は全単射である.論理式は以下.
  \begin{equation*}
- \lnot \exists n (A \subseteq n) \rightarrow \BijectionMap{\seigen{C_A}{A}}{A}{\nat}
+ \forall n \in \nat \exists x \in A(x > n) \rightarrow \BijectionMap{\seigen{C_A}{A}}{A}{\nat}
  \end{equation*}
 \end{proposition}

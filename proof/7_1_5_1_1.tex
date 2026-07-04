@@ -1,0 +1,29 @@
+\begin{proof}  1.1
+ goal:= $A_m = A \cap m \land m \in \nat \rightarrow \forall n \in m (C_A(n) = C_{A_m}(n))$\\
+ 前件を仮定し、後件を示す.\\
+ $\varphi (n) :\Leftrightarrow C_A(n) = C_{A_m}(n)$とし,
+ $\forall n \in \nat (\varphi (n) \rightarrow \varphi (n+1))$を$n$に関する数学的帰納法で示す.\\
+ (base step)\\
+ $C_A(0) = 0 = C_{A_m}(0)$.\\
+ (induction step) \\
+ 任意に$n \in m$をとる.\\
+ $(n \in A)$\\
+ このとき,
+ $n \in A$.
+ また,
+ $C_A$の定義より,
+ $C_A(n+1) = C_A(n) + 1$,
+ $C_{A_m}(n+1) = C_{A_m}(n) + 1$\\
+ これと$\varphi (n)$より,
+ $C_A(n+1) = C_{A_m}(n+1)$.\\
+ $(n \not\in A)$\\
+ このとき,
+ $n \not\in A$.
+ また,
+ $C_A$の定義より,
+ $C_A(n+1) = C_A(n)$,
+ $C_{A_m}(n+1) = C_{A_m}(n)$\\
+ これと$\varphi (n)$より,
+ $C_A(n+1) = C_{A_m}(n+1)$.
+\end{proof}
+

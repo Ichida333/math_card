@@ -13,11 +13,7 @@ $\BijectionMap{C_A\restriction_{{A}}}{\emptyset}{\emptyset}$.今,
 $\Card{A} = \emptyset$ より $\varphi_2(0)$は真.\\
 $C_A(0)=0\rightarrow A=0$も成り立つ.\\
 
-(induction step) $\forall n \in \nat ( \varphi (n) \rightarrow \varphi (n+1)) \Leftrightarrow$ \\
-$\forall n\in\nat ((A \subseteq n \rightarrow ((\Card{A} = C_A(n) \leq n) \land (\BijectionMap{\seigen{C_A}{A}}{A}{\Card{A}})
-\land (C_A(n) = n \rightarrow A=n))) \\
- \rightarrow (A \subseteq n+1 \rightarrow ((\Card{A}=C_{A}(n+1) \leq n+1) \land (\BijectionMap{\seigen{C_A}{A}}{A}{\Card{A}})
- \land (C_{A}(n+1) = n+1 \rightarrow A=n+1))))$\\
+(induction step) \\
  任意に$n\in\nat$をとり,
  前件を仮定して後件をしめす.\\
  $A \subseteq n+1$を仮定する.\\
