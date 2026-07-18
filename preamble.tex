@@ -61,8 +61,11 @@
 \newcommand{\tempdefeq}{:=}
 \newcommand{\map}[3]{#1\colon #2 \to #3}
 \newcommand{\InjectionMap}[3]{#1\colon #2 \xrightarrow{\text{inj}} #3}
+\newcommand{\InjMap}[3]{#1\colon #2 \xrightarrow{\text{inj}} #3}
 \newcommand{\SurjectionMap}[3]{#1\colon #2 \xrightarrow{\text{sur}} #3}
+\newcommand{\SurMap}[3]{#1\colon #2 \xrightarrow{\text{sur}} #3}
 \newcommand{\BijectionMap}[3]{#1\colon #2 \xrightarrow{\text{bij}} #3}
+\newcommand{\BijMap}[3]{#1\colon #2 \xrightarrow{\text{bij}} #3}
 \newcommand{\op}[2]{\langle #1,#2 \rangle}
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\ran}{ran}
@@ -72,9 +75,11 @@
 \newcommand{\tempdefarr}{:\Leftrightarrow}
 \newcommand{\dash}[1]{#1 ^{\prime}}
 \newcommand{\ImpDir}[2]{\hspace{-0.5cm}（\;(#1)$\Rightarrow$(#2)\;）}
-\newcommand{\Card}[1]{\operatorname{Card}(#1)}
+\newcommand{\Card}[1]{\operatorname{Card}#1}
 \newcommand{\seigen}[2]{#1\mid_{#2}}
 \newcommand{\nat}{\mathbb{N}}
+\newcommand{\Max}[1]{\operatorname{Max}#1}
+\newcommand{\Min}[1]{\operatorname{Min}#1}
 
 % sub-block 環境
 \definecolor{BIP-back}{gray}{0.85}

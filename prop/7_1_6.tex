@@ -1,0 +1,21 @@
+\begin{proposition}[p186の系7.1.6]
+	$A \subseteq \nat$とする.\\
+  1. $A$は可算集合である. 
+  さらに,
+  次の条件(1)と(2)は同値である.\\
+  (1)$A \subseteq n$をみたす自然数$n$が存在する.\\
+  (2)$A$は有限集合である.\\
+  論理式は以下.
+  \begin{equation*}
+     \exists n (A \subseteq n) \leftrightarrow
+     \exists n \in \nat \exists f (\BijectionMap{f}{n}{A})
+  \end{equation*}
+  2. $A$が空でなければ$\seigen{C_A}{A}$による,
+  $0 \in C_A[A]$の逆像$l \in A$は$A$の最小限である.
+  論理式は以下.
+  \begin{equation*}
+     A \neq \emptyset \rightarrow
+     \exists l (\seigen{C_A}{A}(l) = 0 \land \forall n \in A(l \leq n))
+  \end{equation*}
+\end{proposition}
+

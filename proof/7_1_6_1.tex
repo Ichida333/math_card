@@ -1,0 +1,58 @@
+\begin{proof} 1. \\
+  \begin{itemize}
+      \item[]\hspace{-0.5cm} ($(1) \rightarrow (2)$)\\
+        Prop7.1.5.1 より明らか.
+      \item[]\hspace{-0.5cm} ($(2) \rightarrow (1)$)\\
+        対偶を示す.\\
+        仮定とProp7.1.5.2より,
+        $\BijMap {\seigen {C_A}{A}}{A}{\nat}$.\\
+        Def7.1.4.2より$A$は可算無限集合である.\\
+        よって対偶は真.
+  \end{itemize}
+\end{proof}
+
+
+\begin{proof} 2. \\
+  まず補題として以下の証明を行う.
+  \begin{equation*}
+   A \neq \emptyset \rightarrow \forall m,n \in A(C_A(m) \leq C_A(n) \leftrightarrow m \leq n )
+  \end{equation*}
+  $A \neq \emptyset$を仮定する.\\
+  \begin{itemize}
+      \item[]\hspace{-0.5cm} ($(1) \rightarrow (2)$)\\
+        $C_A$の定義より明らか.
+      \item[]\hspace{-0.5cm} ($(2) \rightarrow (1)$)\\
+        任意に$m,n \in A$をとり,
+        $C_A(m) \leq C_A(n)$とする.\\
+        また,
+        $(1) \rightarrow (2)$と,
+        $\seigen {C_A}{A}$は単射より以下は真.
+          \begin{equation}
+            \forall a,b \in A(a < b \rightarrow C_A(a) < C_A(b))
+          \end{equation}
+        命題2.9.1より,
+        $\nat$は大小関係に関して全順序集合だから,
+        以下は真.
+        \begin{equation*}
+          \forall a, b \in A (a \leq b \lor b \leq a )
+        \end{equation*}
+        これと(7.1)の対偶を合わせると,
+        以下は真.
+        \begin{equation}
+            \forall a,b \in A(C_A(b) \geq C_A(a) \rightarrow b \geq a)
+        \end{equation}
+        $m,n$を(7.2)に代入すると$C_A(m) \leq C_A(n)$より,
+        $m \leq n$は真.
+  \end{itemize}
+  次に2を示す.\\
+  goal :$\Leftrightarrow A \neq \emptyset \rightarrow
+  \exists l (\seigen{C_A}{A}(l) = 0 \land \forall n \in A(l \leq n))$\\
+  $A \neq \emptyset$を仮定する.\\
+  $l := \seigen{C_A}{A}^{-1}(0)$とおくと$\seigen{C_A}{A}(l) = 0$.\\
+  いま,
+  $\forall n \in \nat (0 \leq x)$より,
+  $\forall n \in A (C_A(l) \leq C_A(n))$は真.\\
+  これと補題を合わせると,
+  $\forall n \in A (l \leq n)$.\\
+  そんな$l$の存在よりgoalは真.
+\end{proof}
