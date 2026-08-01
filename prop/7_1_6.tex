@@ -1,4 +1,4 @@
-\begin{proposition}[p186の系7.1.6]
+\begin{corollary}[p186の系7.1.6]
 	$A \subseteq \nat$とする.\\
   1. $A$は可算集合である. 
   さらに,
@@ -11,11 +11,11 @@
      \exists n \in \nat \exists f (\BijectionMap{f}{n}{A})
   \end{equation*}
   2. $A$が空でなければ$\seigen{C_A}{A}$による,
-  $0 \in C_A[A]$の逆像$l \in A$は$A$の最小限である.
+  $0 \in C_A[A]$の逆像$l \in A$は$A$の最小元である.
   論理式は以下.
   \begin{equation*}
      A \neq \emptyset \rightarrow
-     \exists l (\seigen{C_A}{A}(l) = 0 \land \forall n \in A(l \leq n))
+     \exists l \in A(C_A(l) = 0 \land \forall n \in A(l \leq n))
   \end{equation*}
-\end{proposition}
+\end{corollary}
 

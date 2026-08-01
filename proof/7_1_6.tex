@@ -1,0 +1,83 @@
+\begin{proof} 1. \\
+  \begin{itemize}
+      \item[]\hspace{-0.5cm} ($(1) \rightarrow (2)$)\\
+        Prop7.1.5.1 より明らか.
+      \item[]\hspace{-0.5cm} ($(2) \rightarrow (1)$)\\
+        対偶を示す.\\
+        仮定とProp7.1.5.2より,
+        $\BijMap {\seigen {C_A}{A}}{A}{\nat}$.\\
+        Def7.1.4.2より$A$は可算無限集合である.\\
+        よって対偶は真.
+  \end{itemize}
+\end{proof}
+
+
+\begin{proof} 2. \\
+  まず補題として以下の証明を行う.
+  \begin{equation*}
+   A \neq \emptyset \rightarrow \forall m,n \in A(C_A(m) \leq C_A(n) \leftrightarrow m \leq n )
+  \end{equation*}
+  $A \neq \emptyset$を仮定し,
+  任意に$m, n \in A$をとる.\\
+  \begin{itemize}
+      \item[]\hspace{-0.5cm} ($m \leq n \rightarrow C_A(m) \leq C_A(n)$)\\
+        前件を仮定する.\\
+        $\varphi (n) :\Leftrightarrow C_A(m) \leq C_A(n)$とし,
+        $n$に関する帰納法で示す.\\
+        \begin{itemize}
+          \item[]\hspace{-0.5cm} (base step)\\
+            $C_A(n) = C_A(m)$より,
+            $C_A(m) \leq C_A(n)$.\\
+          \item[]\hspace{-0.5cm} (induction step)\\
+            $C_A(n + 1) = C_A(n) \lor C_A(n) + 1$.
+            よって,
+            $C_A(n) \leq C_A(n+1)$\\
+            これと$\varphi (n)$を合わせると,
+            $C_A(m) \leq C_A(n+1)$
+        \end{itemize}
+      \item[]\hspace{-0.5cm} ($C_A(m) \leq C_A(n)  \rightarrow m \leq n$)\\
+        $C_A(m) \leq C_A(n)$とする.\\
+        $m \leq n \rightarrow C_A(m) \leq C_A(n)$と,
+        $\seigen {C_A}{A}$は単射より以下は真.
+          \begin{equation}
+            \forall a,b \in A(a < b \rightarrow C_A(a) < C_A(b))
+          \end{equation}
+        \begin{sub-block}{{\boldmath $\because$}\,}
+          \begin{itemize}
+            \item[] \hspace{-0.5cm} \\
+              任意に$a,b \in A$をとり$a < b$とする.\\
+              $m \leq n \rightarrow C_A(m) \leq C_A(n)$より,
+              これに$a,b$を代入すると$C_A(a) \leq C_A(b)$.\\
+              また,
+              $\seigen{C_A}{A}$は単射より,
+              $\forall a, b \in A (a \neq b \rightarrow C_A(a) \neq C_A(b))$は真.\\
+              これらを合わせると,
+              $C_A(a) < C_A(b)$.
+          \end{itemize}
+        \end{sub-block}
+        命題2.9.1より,
+        $\nat$は大小関係に関して全順序集合だから,
+        以下は真.
+        \begin{equation*}
+          \forall a, b \in \nat (a \leq b \lor b \leq a )
+        \end{equation*}
+        これと(7.1)の対偶を合わせると,
+        以下は真.
+        \begin{equation}
+            \forall a,b \in A(C_A(b) \leq C_A(a) \rightarrow b \leq a)
+        \end{equation}
+        $m,n$を(7.2)に代入すると$C_A(m) \leq C_A(n)$より,
+        $m \leq n$は真.
+  \end{itemize}
+  次に2を示す.\\
+  goal :$\Leftrightarrow A \neq \emptyset \rightarrow
+  \exists l \in A (C_A(l) = 0 \land \forall n \in A(l \leq n))$\\
+  $A \neq \emptyset$を仮定する.\\
+  $l := \seigen{C_A}{A}^{-1}(0)$とおくと$l \in A( C_A(l) = 0)$.\\
+  $0$は最小値なので
+  $\forall x \in \nat (0 \leq x)$.
+  よって$\forall n \in A (C_A(l) \leq C_A(n))$は真.\\
+  補題に$l,n$を代入すると,
+  $l \leq n$.\\
+  そんな$l$の存在よりgoalは真.
+\end{proof}
