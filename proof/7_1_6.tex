@@ -70,11 +70,9 @@
         $m \leq n$は真.
   \end{itemize}
   次に2を示す.\\
-  goal :$\Leftrightarrow A \neq \emptyset \rightarrow
-  \exists l \in A (C_A(l) = 0 \land \forall n \in A(l \leq n))$\\
   $A \neq \emptyset$を仮定する.\\
-  $l := \seigen{C_A}{A}^{-1}(0)$とおくと$l \in A( C_A(l) = 0)$.\\
-  $0$は最小値なので
+  $l := \seigen{C_A}{A}^{-1}(0)$とおくと$l \in A \land C_A(l) = 0$.\\
+  $0$は$\nat$の最小値なので
   $\forall x \in \nat (0 \leq x)$.
   よって$\forall n \in A (C_A(l) \leq C_A(n))$は真.\\
   補題に$l,n$を代入すると,
