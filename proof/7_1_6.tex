@@ -46,28 +46,38 @@
           \begin{itemize}
             \item[] \hspace{-0.5cm} \\
               任意に$a,b \in A$をとり$a < b$とする.\\
+              $\seigen{C_A}{A}$は単射より,
+              $\forall x, y \in A (x \neq y \rightarrow C_A(x) \neq C_A(y))$.\\
+              $a,b \in A \land a \neq b$より$C_A(a) \neq C_A(b)$\\
               $m \leq n \rightarrow C_A(m) \leq C_A(n)$より,
               これに$a,b$を代入すると$C_A(a) \leq C_A(b)$.\\
-              また,
-              $\seigen{C_A}{A}$は単射より,
-              $\forall a, b \in A (a \neq b \rightarrow C_A(a) \neq C_A(b))$は真.\\
-              これらを合わせると,
-              $C_A(a) < C_A(b)$.
+              いま,
+              $C_A(a) \neq C_A(b)$なので$C_A(a) < C_A(b)$.
           \end{itemize}
         \end{sub-block}
         命題2.9.1より,
         $\nat$は大小関係に関して全順序集合だから,
         以下は真.
-        \begin{equation*}
+        \begin{equation}
           \forall a, b \in \nat (a \leq b \lor b \leq a )
-        \end{equation*}
+        \end{equation}
         これと(7.1)の対偶を合わせると,
         以下は真.
         \begin{equation}
             \forall a,b \in A(C_A(b) \leq C_A(a) \rightarrow b \leq a)
         \end{equation}
-        $m,n$を(7.2)に代入すると$C_A(m) \leq C_A(n)$より,
-        $m \leq n$は真.
+        \begin{sub-block}{{\boldmath $\because$}\,}
+          \begin{itemize}
+            \item[] \hspace{-0.5cm} \\
+              (7.1)の対偶をとると,
+              $\forall a, b, \in A(\lnot (C_A(a) < C_A(b)) \rightarrow \lnot (a < b))$.\\
+              これに(7.2)を適用すると,
+              $\forall a,b \in A(C_A(b) \leq C_A(a) \rightarrow b \leq a).$
+          \end{itemize}
+        \end{sub-block}
+        $m,n \in A$,
+        $C_A(m) \leq C_A(n)$と(7.3)により,
+        $m \leq n$.
   \end{itemize}
   次に2を示す.\\
   $A \neq \emptyset$を仮定する.\\
@@ -75,7 +85,8 @@
   $0$は$\nat$の最小値なので
   $\forall x \in \nat (0 \leq x)$.
   よって$\forall n \in A (C_A(l) \leq C_A(n))$は真.\\
-  補題に$l,n$を代入すると,
+  $l,n \in A$,
+  $C_A(l) \leq C_A(n)$と補題より,
   $l \leq n$.\\
-  そんな$l$の存在よりgoalは真.
+  そんな$l$の存在より命題は真.
 \end{proof}
