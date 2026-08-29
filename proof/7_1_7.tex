@@ -1,5 +1,5 @@
 \begin{proof} 1. \\
-  まず以下を証明する.\\
+  補題1\\
   \begin{equation}
     \InjMap{f}{X}{Y} \rightarrow \BijMap{f}{X}{f[X]}
   \end{equation}
@@ -20,6 +20,59 @@
       $\exists x \in X (f(x) = y)$は真よりそんな$x$を一つとり固定.\\
       そんな$x$の存在より命題は真.
   \end{itemize}
+  
+  
+  補題2
+  \begin{equation}
+    (\map{f}{X}{Y} \land  \InjMap{g}{Y}{Z} \land \SurMap{g \after f}{X}{Z}) \rightarrow \SurMap{f}{X}{Y}
+  \end{equation}
+  任意に$y \in Y$をとる.\\
+  $g$は写像なので$y$に対して,
+  $g(y) \in Z$が存在するので,
+  そんな$g(y)$を一つとり固定.\\
+  また,
+  $g \after f$は全射なので,
+  $g(y)$を代入すると,
+  $(g \after f)(x) =  g(y)$な$x$が存在する.\\
+  そんな$x$を一つとり固定.\\
+  $(g \after f)(x) = g(f(x)) = g(y)$で$g$は単射.
+  かつ$y , f(x) \in Y$より
+  $f(x) = y$.\\
+  そんな$x$の存在より,
+  $f$は全射.\\
+
+
+  補題3
+  \begin{equation}
+   \forall f( \InjMap {f}{n}{n} \rightarrow \SurMap{f}{n}{n})
+  \end{equation}
+  $\varphi (n) :\Leftrightarrow \InjMap {f}{n}{n} \rightarrow \SurMap{f}{n}{n}$とし,
+  $\forall n \in \nat (\varphi (n) \rightarrow \varphi (n+1))$を数学的帰納法で示す.\\
+  \begin{itemize}
+  \item[]\hspace{-0.5cm} (base step) \\
+    空虚な証明より,
+    $\map{g}{\emptyset}{\emptyset}$は全射.
+  \item[]\hspace{-0.5cm} (induction step) \\
+    任意に$n \in \nat$をとり,
+    $\varphi (n)$を仮定.\\
+    $\InjMap{f}{n+1}{n+1}$を仮定.\\
+    $k := f(n)$とおく.\\
+    また,
+    任意に$n' \in n$をとると,
+    $f$の単射性と$n' \neq n$より$f(n') \neq k$.\\
+    このとき$\InjMap{\seigen{f}{n}}{n}{n+1 \setminus \{k\}}$.\\
+    $g := \{<i, i> | i < k \land i \in n+1\} \cup \{<i, i - 1> | i > k \land i \in n+1\}$とおく.\\
+    すると,
+    $\BijMap{g}{n+1 \setminus \{k\}}{n}$.\\
+    このとき,
+    $\InjMap{g \after \seigen{f}{n}}{n}{n}$.\\ 
+    これと$\varphi(n)$より,
+    $\SurMap{g \after \seigen{f}{n}}{n}{n}$.
+    これと補題2より$\SurMap{\seigen{f}{n}}{n}{n+1 \setminus \{k\}}$\\ 
+    $k = f(n)$より,
+    $\SurMap{f}{n+1}{n+1}$.
+  \end{itemize}
+  
   $f$が単射であると仮定し,
   1.1から1.3を示す.\\
   \begin{itemize}
@@ -57,9 +110,12 @@
       $\Card{(g \after f)} = m = \Card{X} \leq n = \Card{Y}.$\\
     \item[]\hspace{-0.5cm} (1.3) \\
       $\Card{X} = \Card{Y} = n$とすると,
-      $\BijMap{g}{X}{n}$,$\BijMap{h}{n}{Y}$が存在する.\\
-      それらを合成すると,
-      $\BijMap{h \after g}{X}{Y}$が得られる.\\
+      $\BijMap{g}{n}{X}$,$\BijMap{h}{n}{Y}$が存在する.\\
+      このとき,
+      $\InjMap{h \after f \after g}{n}{n}$が得られる.\\
+      補題3より$\SurMap{h \after f \after g}{n}{n}$.\\
+      補題2を2回適用すると,
+      $\SurMap{f}{X}{Y}$
   \end{itemize}
 \end{proof}
 
