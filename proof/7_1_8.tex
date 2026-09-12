@@ -1,2 +1,77 @@
+  $\mathbf{claim1}$\\
+  $n$は自然数とし,
+  $A \subseteq n$とする.\\
+  $v_n$を$v_n(A,0) = A$,
+  $v_n(A,1) = A \cup \{n\}$とおくと,
+  $\BijMap{v_n}{P(n) \times 2}{P(n+1)}$\\
+  $\mathbf{proof}$\\
+  $P(n+1) = \{A, A \cup \{n\}\}$をまず示す.
+  \begin{itemize}
+    \item[]\hspace{-0.5cm} ($P(n+1) \subseteq \{A, A \cup \{n\}\}$) \\
+      任意に$A_n \in P(n+1)$をとる.
+      このとき$A_n \subseteq n+1$.\\
+      $n \in A_n$のとき,
+      $A_n = A$.\\
+      $n \not\in A_n$のとき,
+      $A_n = A \cup \{n\}$.
+      これより,
+      $A_n \in \{A, A \cup \{n\} \}$
+    \item[]\hspace{-0.5cm} ($\{A, A \cup \{n\}\} \subseteq P(n+1)$) \\
+      $A, \{n\} \subseteq n+1$より,
+      真.
+  \end{itemize}
+  よって$P(n) = \{A\},P(n+1) = \{A, A \cup \{n\}\}$と表せるので,
+  $\BijMap{v_n}{P(n) \times 2}{P(n+1)}$.\\
+  $\mathbf{claim2}$\\
+  $n$は自然数とし,
+  $m \in 2^n$とする.
+  このとき$m \leq 2^n -1$\\
+  $u_n$を$u_n(m,0) = m$,
+  $u_n(m,1) = m+ 2^n$と定める.\\
+  このとき$\BijMap{u_n}{2^n \times 2}{2^{n+1}}$.\\
+  $\mathbf{proof}$\\
+  $2^{n+1} = \{m , m+ 2^n\}$をまず示す.
+  \begin{itemize}
+    \item[]\hspace{-0.5cm} ($2^{n+1} \subseteq \{m , m+ 2^n\}$) \\
+      任意に$x \in 2^{n+1}$をとると,
+      $x \leq 2^{n+1} - 1$.\\
+      $x \leq 2^n - 1$のとき,
+      $x = m$.\\
+      $2^n \leq x \leq 2^{n+1} - 1$のとき\\
+      $2^n \leq m + 2^n \leq 2^{n+1} - 1$より$2^{n+1} = m + 2^n$
+    \item[]\hspace{-0.5cm} ($ \{m , m+ 2^n\} \subseteq2^{n+1}$) \\
+      $m, m + 2^n < 2^{n+1}$より真.
+  \end{itemize}
+  よって$2^n = \{m\}, 2^{n+1} = \{m, m+2^n\}$と表せるので,
+  $\BijMap{u_n}{2^n \times 2}{2^{n+1}}$.
 \begin{proof} 1. \\
-\begin{end} 
+  $\forall n \in \nat (\BijMap{b_n}{P(n)}{2^n})$を数学的帰納法で示す.
+  \begin{itemize}
+    \item[]\hspace{-0.5cm} (base step)\\
+      $P(0) = \{\{\emptyset\}\} = 1 = 2^0$より真.
+    \item[]\hspace{-0.5cm} (induction step)\\
+      $b_{n+1} \after u_n = v_n \after (b_n \times id_2)$を示す.\\
+      $P(n) \times 2 = \{<A, 0>, <A,1>\}$より,$<A,0>,<A,1>$のときで場合分けする.
+      \begin{itemize}
+        \item[]\hspace{-0.5cm} ($<A, 0>$)\\
+          $v_n(<A,0>) = A.$\\
+          $b_{n+1}(A) = \sum _{m \in A} 2^m$.
+          よって$b_{n+1} \after u_n(<A,0>) = \sum _{m \in A} 2^m$\\
+          $(b_n \times id_2)(<A,0>) = <b_n(A), 0>$.\\
+          $u_n(<b_n(A), 0>) = b_n(A) = \sum _{m \in A} 2^m$.\\
+          よって$b_{n+1} \after u_n(<A,0>) = v_n \after (b_n \times id_2)(<A,0>)$.
+        \item[]\hspace{-0.5cm} ($<A, 1>$)\\
+          $v_n(<A,1>) = A \cup \{n\}.$\\
+          $b_{n+1}(A \cup \{n\}) = \sum _{m \in A \cup \{n\}} 2^m = \sum _{m \in A} 2^m + 2^n$.\\
+          よって$b_{n+1} \after u_n(<A,1>) = \sum _{m \in A} 2^m + 2^n$\\
+          $(b_n \times id_2)(<A,1>) = <b_n(A), 1>$.\\
+          $u_n(<b_n(A), 1>) = b_n(A) + 2^n = \sum _{m \in A} 2^m + 2^n$.\\
+          よって$b_{n+1} \after u_n(<A,1>) = v_n \after (b_n \times id_2)(<A,1>)$.
+      \end{itemize}
+      以上より,
+      $b_{n+1} \after u_n = v_n \after (b_n \times id_2)$は真.\\
+      今,
+      $u_n, v_n, b_n \times id_2$は全単射なので,
+      $b_{n+1}$も全単射になる.
+  \end{itemize}
+\end{proof} 
