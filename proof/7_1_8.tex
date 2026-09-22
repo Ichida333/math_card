@@ -79,7 +79,39 @@
       \end{itemize}
   \end{itemize}
   よって$2^n = \{m\}, 2^{n+1} = \{m, m+2^n\}$と表せるので,
-  $\BijMap{u_n}{2^n \times 2}{2^{n+1}}$.
+  $\BijMap{u_n}{2^n \times 2}{2^{n+1}}$.\\
+$\mathbf{claim3}$\\
+  $\nat = \bigcup _{n \in \nat} 2^n$\\
+  $\mathbf{proof}$
+    \begin{itemize}
+      \item[]\hspace{-0.5cm} ((1) $\subseteq$ (2))\\
+        任意に$x \in \nat$をとる.\\
+        $n := x$とおくと,
+        $x \in 2^n$.
+        \begin{sub-block}{{\boldmath $\because$}\,}
+          \begin{itemize}
+            \item[] \hspace{-0.5cm} \\
+              $\forall n \in \nat (n \in 2^n)$を帰納法で示す.
+                \begin{itemize}
+                  \item[]\hspace{-0.5cm} (base step)\\
+                    $0 < 2^0 = 1$.
+                  \item[]\hspace{-0.5cm} (induction step)\\
+                    帰納法の仮定より$n < 2^n$.\\
+                    $n+1 < 2^n + 1< 2^n + 2^n = 2^{n+1}$
+                \end{itemize}
+          \end{itemize}
+        \end{sub-block}
+        $\bigcup _{n \in \nat} 2^n \Leftrightarrow \{x | \exists n \in \nat (x \in 2^n)\}$と,
+        $n \in \nat \land x \in 2^n$より
+        そんな$n$の存在より,
+        $x \in \bigcup _{n \in \nat} 2^n$.
+      \item[]\hspace{-0.5cm} ((2) $\subseteq$ (1))\\
+        任意に$x \in \bigcup _{n \in \nat} 2^n$をとると,
+        $\exists n \in \nat (x \in 2^n)$が真より,
+        そんな$n$を一つとり固定.\\
+        $2^n \subseteq \nat$と$x \in 2^n$より,
+        $x \in \nat$.
+    \end{itemize}
 \begin{proof} 1. \\
   $\forall n \in \nat (\BijMap{b_n}{P(n)}{2^n})$を数学的帰納法で示す.
   \begin{itemize}
@@ -112,4 +144,42 @@
       $u_n, v_n, b_n \times id_2$は全単射なので,
       $b_{n+1}$も全単射になる.
   \end{itemize}
+\end{proof} 
+  \begin{proof} 2\\
+  $\mathbf{claim4}$を適用すると,
+  goal$\Leftrightarrow \BijMap{b}{F(\nat)}{\bigcup _{n \in \nat} 2^n}$.\\
+  単射性と全射性に分けて証明する.
+    \begin{itemize}
+      \item[]\hspace{-0.5cm} (単射性)\\
+        任意に$A,B \in F(\nat)$をとり,
+        $b(A) = b(B)$とする.\\
+        このとき$A,B$は有限集合かつ$A,B \subseteq \nat$なので,
+        $\mathbf{Corollary7.1.6(1)}$より,
+        $A \subseteq n, B \subseteq m$を満たす自然数$n,m$が存在するのでそれらを固定.\\
+        $l := \operatorname{max}(n,m)$とおく.\\
+        このとき$A,B \in P(l)$.
+        また,
+        $b_l(A) = b(A), b_l(B) = b(B)$より,
+        $b_l(A) = b_l(b)$.\\
+        1.より$b_l$は単射なので,
+        $A = B$.
+        よって$b$は単射.
+      \item[]\hspace{-0.5cm} (全射性)\\
+        任意に$x \in \bigcup _{n \in \nat} 2^n$をとる.
+        このとき,
+        $\exists n \in \nat(x \in 2^n)$が真より,
+        そんな$n$を一つとり固定.\\
+        また,
+        1.より$b_n$は全射なので,
+        $x \in 2^n$を代入すると,
+        $\exists A \in P(n)(b_n(A) = x)$が真\\
+        そんな$A$を一つとり固定.\\
+        $A \subseteq n \subseteq \nat$.
+        よって$A \in F(\nat)$.\\
+        また,
+        $b(A) = b_n(A) = x$.\\ 
+        そんな$A$の存在より,
+        $\exists A \in F(\nat) (b(A) = x)$は真.
+        よって$b$は全射.
+    \end{itemize}
 \end{proof} 
