@@ -5,50 +5,88 @@
   $v_n(A,1) = A \cup \{n\}$とおくと,
   $\BijMap{v_n}{P(n) \times 2}{P(n+1)}$\\
   $\mathbf{proof}$\\
-  $P(n+1) = \{A, A \cup \{n\}\}$をまず示す.
+  $P(n+1) = \{X | \exists A \in P(n)( X = A \lor X = A \cup \{n\})\}$をまず示す.
   \begin{itemize}
-    \item[]\hspace{-0.5cm} ($P(n+1) \subseteq \{A, A \cup \{n\}\}$) \\
-      任意に$A_n \in P(n+1)$をとる.
-      このとき$A_n \subseteq n+1$.\\
-      $n \in A_n$のとき,
-      $A_n = A$.\\
-      $n \not\in A_n$のとき,
-      $A_n = A \cup \{n\}$.
-      これより,
-      $A_n \in \{A, A \cup \{n\} \}$
-    \item[]\hspace{-0.5cm} ($\{A, A \cup \{n\}\} \subseteq P(n+1)$) \\
-      $A, \{n\} \subseteq n+1$より,
-      真.
+    \item[]\hspace{-0.5cm} ($P(n+1) \subseteq *$) \\
+      任意に$X \in P(n+1)$をとる.
+      このとき$X \subseteq n+1$.
+      よって$X \in P(n)$.
+      \begin{itemize}
+        \item[]\hspace{-0.5cm} ($n \not \in X$のとき) \\
+          $A:= X$とおく.
+          このとき,
+          $X = A \land X = A \in P(n)$が真.\\
+          そんな$A$の存在より$X \in *.$
+        \item[]\hspace{-0.5cm} ($n \in X$のとき) \\
+          $A:= X \setminus \{n\}$とおくと,
+          $X = A \cup \{n\}$.\\
+          また,
+          $A = X \setminus \{n\} \in P(n)$.\\
+          そんな$A$の存在より$X \in *.$
+      \end{itemize}
+    \item[]\hspace{-0.5cm} ($* \subseteq P(n+1)$) \\
+      任意に$X \in *$をとると,
+      $\exists A \in P(n)( X = A \lor X = A \cup \{n\})$が真より,
+      そんな$A$を一つとり固定.
+      \begin{itemize}
+        \item[]\hspace{-0.5cm} ($X = A$のとき) \\
+          $X = A \subseteq n$より,
+          $X \in P(n+1)$.
+        \item[]\hspace{-0.5cm} ($X = A  \cup \{n\}$のとき) \\
+          $X = A  \cup \{n\} \subseteq n+1$より,
+          $X \in P(n+1)$.
+      \end{itemize}
   \end{itemize}
   よって$P(n) = \{A\},P(n+1) = \{A, A \cup \{n\}\}$と表せるので,
   $\BijMap{v_n}{P(n) \times 2}{P(n+1)}$.\\
   $\mathbf{claim2}$\\
   $n$は自然数とし,
   $m \in 2^n$とする.
-  このとき$m \leq 2^n -1$\\
   $u_n$を$u_n(m,0) = m$,
   $u_n(m,1) = m+ 2^n$と定める.\\
   このとき$\BijMap{u_n}{2^n \times 2}{2^{n+1}}$.\\
   $\mathbf{proof}$\\
-  $2^{n+1} = \{m , m+ 2^n\}$をまず示す.
+  $2^{n+1} = \{x | \exists m (0 \leq m < 2^n \land( x = m \lor  x = m+ 2^n))\}$をまず示す.
   \begin{itemize}
-    \item[]\hspace{-0.5cm} ($2^{n+1} \subseteq \{m , m+ 2^n\}$) \\
+    \item[]\hspace{-0.5cm} ($2^{n+1} \subseteq *$) \\
       任意に$x \in 2^{n+1}$をとると,
-      $x \leq 2^{n+1} - 1$.\\
-      $x \leq 2^n - 1$のとき,
-      $x = m$.\\
-      $2^n \leq x \leq 2^{n+1} - 1$のとき\\
-      $2^n \leq m + 2^n \leq 2^{n+1} - 1$より$2^{n+1} = m + 2^n$
-    \item[]\hspace{-0.5cm} ($ \{m , m+ 2^n\} \subseteq2^{n+1}$) \\
-      $m, m + 2^n < 2^{n+1}$より真.
+      $0 \leq x < 2^{n+1}$.
+      \begin{itemize}
+        \item[]\hspace{-0.5cm} ($0 \leq x < 2^n$のとき) \\
+          $m:= x$とおくと,
+          $m = 0 \leq x < 2^n$.\\
+          よって$x =m \land 0 \leq m < 2^n$が真.\\
+          そんな$m$の存在より$x \in *$.
+        \item[]\hspace{-0.5cm} ($2^n \leq x < 2^{n+1}$のとき) \\
+          $m:= x - 2^n$とおくと,
+          $0 \leq x - 2^n < 2^{n+1} - 2^n = 2^n$より,
+          $0 \leq m < 2^n$\\
+          $x = m + 2^n$より,
+          $0 \leq m < 2^n \land x = m+2^n$が真.\\
+          そんな$m$の存在より$m \in *$.
+      \end{itemize}
+    \item[]\hspace{-0.5cm} ($ * \subseteq2^{n+1}$) \\
+      任意に$x \in *$をとると,
+      $\exists m (m < 2^n \land( x = m \lor  x = m+ 2^n))$が真より,
+      そんな$m$を一つとり固定.
+      \begin{itemize}
+        \item[]\hspace{-0.5cm} ($x = m$のとき) \\
+          $x = m < 2^n < 2^{n+1}$より,
+          $x \in 2^{n+1}$
+        \item[]\hspace{-0.5cm} ($x = m + 2^n$のとき) \\
+          $x = m+ 2^n < 2^n + 2^n = 2^{n+1}$より,
+          $x \in 2^{n+1}$
+      \end{itemize}
   \end{itemize}
   よって$2^n = \{m\}, 2^{n+1} = \{m, m+2^n\}$と表せるので,
   $\BijMap{u_n}{2^n \times 2}{2^{n+1}}$.
 \begin{proof} 1. \\
   $\forall n \in \nat (\BijMap{b_n}{P(n)}{2^n})$を数学的帰納法で示す.
   \begin{itemize}
-    \item[]\hspace{-0.5cm} (base step)\\
-      $P(0) = \{\{\emptyset\}\} = 1 = 2^0$より真.
+    \item[]\hspace{-0.5cm} (base step)goal $:\Leftrightarrow \BijMap{b_0}{P(0)}{1}$\\
+      $P(0) = \{\emptyset\}$,
+      $1 = \{0\}$と$b_0(\emptyset) = 0$より,
+      $b_0$は全単射.
     \item[]\hspace{-0.5cm} (induction step)\\
       $b_{n+1} \after u_n = v_n \after (b_n \times id_2)$を示す.\\
       $P(n) \times 2 = \{<A, 0>, <A,1>\}$より,$<A,0>,<A,1>$のときで場合分けする.
